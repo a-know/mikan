@@ -44,6 +44,7 @@ group :development, :test do
 
   # testing
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 # for twitter-auth
