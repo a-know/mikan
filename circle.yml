@@ -9,4 +9,4 @@ deployment:
   feature:
     branch: /^(?!^master$).+$/
     commands:
-      - ./script/feature_deploy.sh
+      - ./scripts/feature_deploy.sh
