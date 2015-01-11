@@ -50,3 +50,9 @@ end
 # for twitter-auth
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+# for heroku
+group :production do
+  gem 'rails_12factor'
+end
+
