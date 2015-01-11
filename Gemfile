@@ -43,3 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
+# for twitter-auth
+gem 'omniauth'
+gem 'omniauth-twitter'
