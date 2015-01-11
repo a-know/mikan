@@ -5,3 +5,8 @@ machine:
 test:
   override:
     - bundle exec rspec spec/
+deployment:
+  feature:
+    branch: /^(?!^master$).+$/
+    commands:
+      - ./scripts/feature_deploy.sh
