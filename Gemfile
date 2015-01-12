@@ -56,3 +56,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+# for end-to-end test
+group :test do
+  gem 'capybara'
+end
