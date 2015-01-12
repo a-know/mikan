@@ -17,6 +17,17 @@ describe 'a user logged in to register event or take a tickets' do
       it 'show "ログインしました"' do
         expect(page).to have_content 'ログインしました'
       end
+
+      context 'when click "ログアウト" on top page' do
+        before { click_link 'ログアウト' }
+
+        it 'rendered top page' do
+          expect(page.current_path).to eq root_path
+        end
+        it 'show "ログアウトしました"' do
+          expect(page).to have_content 'ログアウトしました'
+        end
+      end
     end
   end
 end
