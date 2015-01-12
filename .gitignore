@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /vendor/bundle
+
+# for direnv
+.envrc
