@@ -27,6 +27,18 @@ require 'factory_girl_rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # for OmniAuth testing
+  config.before(:all, type: :feature) do
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+      provider: 'twitter',
+      uid: '12345',
+      info: {
+        nickname: 'a-know',
+        image: 'http://example.com/a-know.jpg'
+      }
+    })
+  end
   # for Factory Girl
   config.include FactoryGirl::Syntax::Methods
 
