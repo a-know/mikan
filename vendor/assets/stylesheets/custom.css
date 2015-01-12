@@ -1,10 +1,11 @@
 h1 {
-  font-family: mplus-1p-regular;
+
 }
 
 body {
   padding-top: 20px;
   padding-bottom: 40px;
+  font-family: mplus-1p-regular;
 }
 /* Custom container */
 .container-narrow {
