@@ -9,35 +9,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Mikan's", root_path, class: 'navbar-brand' %>
+  <div class="container-narrow">
+    <header class="navbar navbar-inverse" role="navigation">
+      <div class="masthead">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Mikan's", root_path, class: 'navbar-brand' %>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <li><%= link_to 'ログアウト', logout_path %></li>
+            <% else %>
+              <li><%= link_to 'Twitter でログイン', '/auth/twitter' %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li><%= link_to 'ログアウト', logout_path %></li>
-          <% else %>
-            <li><%= link_to 'Twitter でログイン', '/auth/twitter' %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <div class="container">
+    </header>
     <% if flash[:notice] %>
       <div class="alert alert-success">
         <%= flash[:notice] %>
       </div>
     <% end %>
     <%= yield %>
+    <hr>
+
+    <div class="footer">
+      <p>&copy; a-know 2014</p>
+    </div>
   </div>
 </body>
 </html>
