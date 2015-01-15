@@ -56,7 +56,10 @@ group :production do
   gem 'rails_12factor'
 end
 
-# for end-to-end test
+# for testing
 group :test do
+  # for end-to-end test
   gem 'capybara'
+  # for validation expectation
+  gem 'shoulda-matchers'
 end
