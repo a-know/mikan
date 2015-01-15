@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MikanzsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, except: :show
 
   def new
     @mikanz = current_user.created_mikanzs.build
@@ -14,6 +14,10 @@ class MikanzsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @mikanz = Mikanz.find(params[:id])
   end
 
   private

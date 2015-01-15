@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>
+    <%= @mikanz.name %>
+  </h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    オーナー
+  </div>
+  <div class="panel-body">
+    <%= link_to("https://twitter.com/#{@mikanz.owner.nickname}") do %>
+      <%= image_tag @mikanz.owner.image_url %>
+      <%= "@#{@mikanz.owner.nickname}" %>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    制作開始時期
+  </div>
+  <div class="panel-body">
+    <%= @mikanz.start_time.strftime('%Y/%m/%d %H:%M') %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    この未完ズについて
+  </div>
+  <div class="panel-body">
+    <%= @mikanz.content %>
+  </div>
+</div>
