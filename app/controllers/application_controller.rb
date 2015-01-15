@@ -1,6 +1,14 @@
 # encoding: utf-8
 
 class ApplicationController < ActionController::Base
+  # for error handling
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_404
+
+  def handle_404(exception = nil)
+    logger.info "Rendering 404 with exception: #{exception.message}" if exception
+    render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
