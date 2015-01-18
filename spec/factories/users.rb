@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 FactoryGirl.define do
-  factory :user, aliases: [:a_know] do
+  factory :user, aliases: [:owner] do
     provider 'twitter'
-    uid 'a-know'
+    sequence(:uid) { |i| "a-know-#{i}" }
     nickname 'えーの'
     image_url 'http://example.com/a-know.jpg'
   end

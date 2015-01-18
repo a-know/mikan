@@ -16,6 +16,19 @@ class MikanzsController < ApplicationController
     end
   end
 
+  def edit
+    @mikanz = current_user.created_mikanzs.find(params[:id])
+  end
+
+  def update
+    @mikanz = current_user.created_mikanzs.find(params[:id])
+    if @mikanz.update(mikanz_param)
+      redirect_to @mikanz, notice: '登録しました'
+    else
+      render :edit
+    end
+  end
+
   def show
     @mikanz = Mikanz.find(params[:id])
   end

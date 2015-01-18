@@ -28,13 +28,16 @@ describe User, :type => :model do
       end
     end
     context 'Authorized user is found in DB' do
-      before { create(:a_know) }
+      before do
+        @owner = create(:owner)
+        auth_hash[:uid] = @owner.uid
+      end
       it 'not create `a-know` user in DB / return User record already saved' do
         expect do
           @created_user = subject
         end.to_not change{ User.count }
         expect(@created_user.provider).to  eq('twitter')
-        expect(@created_user.uid).to       eq('a-know')
+        expect(@created_user.uid).to       eq(@owner.uid)
         expect(@created_user.nickname).to  eq('えーの')
         expect(@created_user.image_url).to eq('http://example.com/a-know.jpg')
       end
