@@ -100,6 +100,37 @@ RSpec.describe MikanzsController, :type => :controller do
     end
   end
 
+  describe 'PUT #update' do
+    context 'params are all correctly and save successful' do
+      before do
+        @mikanz = create(:mikanz)
+        session[:user_id] = @mikanz.owner.id
+      end
+      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", start_time: @mikanz.start_time, content: @mikanz.content} }
+
+      it 'return 200 as status code' do
+        expect(response.status).to eq(200)
+      end
+
+      it 'redirect to `show` page' do
+        subject
+        expect(response).to redirect_to(mikanz_url(id: @mikanz.id))
+      end
+
+      it 'set a saved object to @mikanz' do
+        subject
+        expect(assigns(:mikanz).errors).to be_empty
+        expect(assigns(:mikanz)).to be_persisted
+        expect(assigns(:mikanz).name).to eq('変更後')
+      end
+
+      it 'DB内のレコードが更新されていること' do
+        subject
+        expect(Mikanz.find(@mikanz.id).name).to eq('変更後')
+      end
+    end
+  end
+
   describe 'GET #show' do
     context 'when specified id which does not saved' do
       before { get :show, id: 99999 }
