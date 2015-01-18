@@ -17,15 +17,20 @@
           <h4>Subheading</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
-
+        <hr>
         <div class="span6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>最近の投稿</h4>
+          <div class="list-group">
+            <% @mikanzs.each do |mikanz| %>
+              <%= link_to(mikanz, class: 'list-group-item') do %>
+                <h4 class="list-group-item-heading">
+                  <%= mikanz.name %>
+                </h4>
+                <p class="list-group-item-text">
+                  制作開始時期：<%= mikanz.start_time.strftime('%Y/%m/%d %H:%M') %>
+                </p>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
