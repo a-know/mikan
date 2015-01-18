@@ -16,6 +16,10 @@ class MikanzsController < ApplicationController
     end
   end
 
+  def edit
+    @mikanz = current_user.created_mikanzs.find(params[:id])
+  end
+
   def show
     @mikanz = Mikanz.find(params[:id])
   end

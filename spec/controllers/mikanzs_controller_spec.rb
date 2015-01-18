@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'rails_helper'
 
 RSpec.describe MikanzsController, :type => :controller do
@@ -71,6 +73,30 @@ RSpec.describe MikanzsController, :type => :controller do
           response
         end.to change{ Mikanz.count }.by(1)
       end
+    end
+  end
+
+  describe 'GET #edit' do
+    before do
+      @mikanz = create(:mikanz)
+      session[:user_id] = @mikanz.owner.id
+    end
+    subject { get :edit, id: @mikanz.id }
+
+    it 'return 200 OK' do
+      subject
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+    end
+
+    it 'パラメータで渡された id に対応する mikanz オブジェクトを @mikanz にセットする' do
+      subject
+      expect(assigns(:mikanz)).to eq(@mikanz)
+    end
+
+    it 'render `edit` template' do
+      subject
+      expect(response).to render_template :edit
     end
   end
 
