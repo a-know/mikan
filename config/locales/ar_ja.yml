@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      mikanz: 未完ズ
+    attributes:
+      mikanz:
+        name: 未完ズの名前
+        start_time: 制作開始時期
+        content: 未完ズについて
