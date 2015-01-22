@@ -101,6 +101,8 @@ GEM
     omniauth-twitter (1.1.0)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
+    paranoia (2.0.4)
+      activerecord (~> 4.0)
     pg (0.18.1)
     rack (1.6.0)
     rack-test (0.6.2)
@@ -205,6 +207,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-twitter
+  paranoia
   pg
   rails (= 4.2.0)
   rails_12factor
