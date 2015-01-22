@@ -63,3 +63,6 @@ group :test do
   # for validation expectation
   gem 'shoulda-matchers'
 end
+
+# for logical delete
+gem 'paranoia'

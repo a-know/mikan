@@ -29,6 +29,12 @@ class MikanzsController < ApplicationController
     end
   end
 
+  def destroy
+    @mikanz = current_user.created_mikanzs.find(params[:id])
+    @mikanz.destroy!
+    redirect_to root_path, notice: '削除しました'
+  end
+
   def show
     @mikanz = Mikanz.find(params[:id])
   end

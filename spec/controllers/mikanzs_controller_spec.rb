@@ -131,6 +131,26 @@ RSpec.describe MikanzsController, :type => :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    before do
+      @mikanz = create(:mikanz)
+      session[:user_id] = @mikanz.owner.id
+    end
+    subject { delete :destroy, id: @mikanz.id }
+
+    it 'redirect to top' do
+      subject
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'expect to delete the mikan' do
+      expect do
+        subject
+        response
+      end.to change{ Mikanz.count }.by(-1)
+    end
+  end
+
   describe 'GET #show' do
     context 'when specified id which does not saved' do
       before { get :show, id: 99999 }
