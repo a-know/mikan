@@ -1,4 +1,5 @@
 class Mikanz < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :owner, class_name: 'User'
   validates :name, length: { maximum: 50 }, presence: true
   validates :content, length: { maximum: 2000 }, presence: true
