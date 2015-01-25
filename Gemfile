@@ -66,3 +66,6 @@ end
 
 # for logical delete
 gem 'paranoia'
+
+# for slider for `completion`
+gem 'bootstrap-slider-rails'
