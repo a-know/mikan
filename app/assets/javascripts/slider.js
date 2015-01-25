@@ -1,0 +1,3 @@
+$("#completionSlider").slider({
+    tooltip: 'always'
+});
