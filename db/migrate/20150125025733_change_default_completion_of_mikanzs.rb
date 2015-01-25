@@ -1,4 +1,9 @@
 class ChangeDefaultCompletionOfMikanzs < ActiveRecord::Migration
-  def change
+  def self.up
+    change_column_default :mikanzs, :completion, 0
+  end
+
+  def self.down
+    change_column_default :mikanzs, :completion, nil
   end
 end
