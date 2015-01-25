@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+# encoding: utf-8
+
 require 'rails_helper'
 
 RSpec.describe MikanzsController, :type => :controller do
@@ -54,7 +56,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(response.status).to eq(200)
       end
 
-      it 'redirect to  `show` page' do
+      it 'redirect to `show` page' do
         subject
         saved_mikanz = Mikanz.find_by(name: @params[:name])
         expect(response).to redirect_to(mikanz_url(id: saved_mikanz.id))
@@ -65,6 +67,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).errors).to be_empty
         expect(assigns(:mikanz)).to be_persisted
         expect(assigns(:mikanz).name).to eq(@params[:name])
+        expect(assigns(:mikanz).completion).to eq(@params[:completion])
       end
 
       it 'create mikanz in DB successfuly' do
