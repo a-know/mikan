@@ -1,0 +1,1 @@
+$("#completionSlider").slider();
