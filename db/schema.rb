@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122111731) do
+ActiveRecord::Schema.define(version: 20150125012145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150122111731) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.string   "completion"
   end
 
   add_index "mikanzs", ["deleted_at"], name: "index_mikanzs_on_deleted_at", using: :btree
