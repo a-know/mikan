@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125025733) do
+ActiveRecord::Schema.define(version: 20150214104515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "mikanzs", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "name",                   null: false
-    t.datetime "start_time",             null: false
-    t.text     "content",                null: false
+    t.string   "name",                     null: false
+    t.datetime "start_time",               null: false
+    t.text     "content",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
-    t.integer  "completion", default: 0
+    t.integer  "completion",   default: 0
+    t.string   "mikanz_image"
   end
 
   add_index "mikanzs", ["deleted_at"], name: "index_mikanzs_on_deleted_at", using: :btree
