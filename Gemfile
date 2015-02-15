@@ -69,3 +69,4 @@ gem 'paranoia'
 
 # for image upload
 gem 'carrierwave'
+gem 'mini_magick'
