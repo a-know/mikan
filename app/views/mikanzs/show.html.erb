@@ -5,6 +5,13 @@
 </div>
 
 <div class="panel panel-default">
+  <% if @mikanz.mikanz_image? %>
+    <div class="panel panel-default">
+      <div class="thumbnail">
+        <%= image_tag @mikanz.mikanz_image.url %>
+      </div>
+    </div>
+  <% end %>
   <div class="panel-heading">
     オーナー
   </div>
