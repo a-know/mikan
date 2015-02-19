@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219104327) do
+ActiveRecord::Schema.define(version: 20150219105616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,9 @@ ActiveRecord::Schema.define(version: 20150219104327) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "waterings", ["mikanz_id", "user_id"], name: "index_waterings_on_mikanz_id_and_user_id", unique: true, using: :btree
   add_index "waterings", ["mikanz_id"], name: "index_waterings_on_mikanz_id", using: :btree
+  add_index "waterings", ["user_id", "mikanz_id"], name: "index_waterings_on_user_id_and_mikanz_id", unique: true, using: :btree
   add_index "waterings", ["user_id"], name: "index_waterings_on_user_id", using: :btree
 
   add_foreign_key "waterings", "mikanzs"
