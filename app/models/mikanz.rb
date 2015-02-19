@@ -1,6 +1,7 @@
 class Mikanz < ActiveRecord::Base
   mount_uploader :mikanz_image, MikanzImageUploader
   acts_as_paranoid
+  has_many :waterings
   belongs_to :owner, class_name: 'User'
   validates :name, length: { maximum: 50 }, presence: true
   validates :content, length: { maximum: 2000 }, presence: true
