@@ -164,7 +164,8 @@ RSpec.describe MikanzsController, :type => :controller do
     end
     context 'when specified id is exists' do
       before do
-        @mikanz = create(:mikanz)
+        @watering = create(:watering)
+        @mikanz = @watering.mikanz
         get :show, id: @mikanz.id
       end
 
@@ -173,8 +174,9 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(response.status).to eq(200)
       end
 
-      it 'set a find result object to @mikanz' do
+      it 'set a find result object to @mikanz and @waterings' do
         expect(assigns(:mikanz)).to eq(@mikanz)
+        expect(assigns(:waterings)).to eq(@mikanz.waterings)
       end
 
       it 'render `show` template' do

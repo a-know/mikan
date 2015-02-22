@@ -37,6 +37,7 @@ class MikanzsController < ApplicationController
 
   def show
     @mikanz = Mikanz.find(params[:id])
+    @waterings = @mikanz.waterings.includes(:user).order(:created_at)
   end
 
   private
