@@ -62,6 +62,9 @@ group :test do
   gem 'capybara'
   # for validation expectation
   gem 'shoulda-matchers'
+  # for end-to-end test with js
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 # for logical delete
