@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       mikanz: ミカン
+      watering: 水やり（応援）
     attributes:
       mikanz:
         name: ミカンの名前
