@@ -40,4 +40,26 @@ RSpec.describe WateringsController, type: :controller do
       expect(response.status).to eq(201)
     end
   end
+
+  describe '#destroy' do
+    before do
+      @watering = create(:watering)
+      @mikanz = @watering.mikanz
+      @user = @watering.user
+      session[:user_id] = @user.id
+    end
+    subject { delete :destroy, :mikanz_id => @mikanz.id, :id => @watering.id }
+
+    it '削除が正しく行われていること' do
+      expect do
+        subject
+      end.to change{ Watering.count }.by(-1)
+      expect(Watering.find_by(mikanz_id: @mikanz.id)).to be_nil
+    end
+
+    it '削除完了後、当該ミカンページにリダイレクトすること' do
+      subject
+      expect(response).to redirect_to(mikanz_path(@mikanz.id))
+    end
+  end
 end
