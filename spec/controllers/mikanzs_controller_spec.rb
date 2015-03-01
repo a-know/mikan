@@ -156,9 +156,10 @@ RSpec.describe MikanzsController, :type => :controller do
 
   describe 'GET #show' do
     context 'when specified id which does not saved' do
-      before { get :show, id: 99999 }
+      subject { get :show, id: 99999 }
 
       it 'return 404 as status code' do
+        subject
         expect(response.status).to eq(404)
       end
     end
@@ -167,27 +168,27 @@ RSpec.describe MikanzsController, :type => :controller do
         @watering = create(:watering)
         @mikanz = @watering.mikanz
         @user = @watering.user
-        get :show, id: @mikanz.id
       end
+      subject { get :show, id: @mikanz.id }
 
       it 'return 200 OK' do
+        subject
         expect(response).to be_success
         expect(response.status).to eq(200)
       end
 
       context '水やりした本人ではないユーザーが閲覧しているとき' do
         it 'set a find result object to @mikanz and @waterings' do
+          subject
           expect(assigns(:mikanz)).to eq(@mikanz)
           expect(assigns(:watering)).to be_nil
           expect(assigns(:waterings)).to eq(@mikanz.waterings)
         end
       end
       context '水やりした本人であるユーザーが閲覧しているとき' do
-        before do
-          session[:user_id] = @user.id
-          get :show, id: @mikanz.id
-        end
+        before { session[:user_id] = @user.id }
         it 'set a find result object to @mikanz and @waterings' do
+          subject
           expect(assigns(:mikanz)).to eq(@mikanz)
           expect(assigns(:watering)).to eq(@user.waterings.find_by(mikanz_id: @mikanz.id))
           expect(assigns(:waterings)).to eq(@mikanz.waterings)
@@ -195,6 +196,7 @@ RSpec.describe MikanzsController, :type => :controller do
       end
 
       it 'render `show` template' do
+        subject
         expect(response).to render_template :show
       end
     end
