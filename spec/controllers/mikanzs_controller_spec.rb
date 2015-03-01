@@ -166,6 +166,7 @@ RSpec.describe MikanzsController, :type => :controller do
       before do
         @watering = create(:watering)
         @mikanz = @watering.mikanz
+        @user = @watering.user
         get :show, id: @mikanz.id
       end
 
@@ -174,9 +175,23 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(response.status).to eq(200)
       end
 
-      it 'set a find result object to @mikanz and @waterings' do
-        expect(assigns(:mikanz)).to eq(@mikanz)
-        expect(assigns(:waterings)).to eq(@mikanz.waterings)
+      context '水やりした本人ではないユーザーが閲覧しているとき' do
+        it 'set a find result object to @mikanz and @waterings' do
+          expect(assigns(:mikanz)).to eq(@mikanz)
+          expect(assigns(:watering)).to be_nil
+          expect(assigns(:waterings)).to eq(@mikanz.waterings)
+        end
+      end
+      context '水やりした本人であるユーザーが閲覧しているとき' do
+        before do
+          session[:user_id] = @user.id
+          get :show, id: @mikanz.id
+        end
+        it 'set a find result object to @mikanz and @waterings' do
+          expect(assigns(:mikanz)).to eq(@mikanz)
+          expect(assigns(:watering)).to eq(@user.waterings.find_by(mikanz_id: @mikanz.id))
+          expect(assigns(:waterings)).to eq(@mikanz.waterings)
+        end
       end
 
       it 'render `show` template' do
