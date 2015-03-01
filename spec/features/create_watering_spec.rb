@@ -17,8 +17,22 @@ describe 'ユーザが水やり（応援）をする', js: true do
       expect(page).to have_content('水やり（応援）を完了しました')
     end
 
-    it '参加表明したユーザ名が表示されていること' do
+    it '水やりしたユーザ名が表示されていること' do
       expect(page).to have_content('@a-know')
+    end
+
+    context 'その後、その応援をキャンセルしたとき' do
+      before do
+        click_on '水やり（応援）を取り消す'
+      end
+
+      it '"このミカンへの水やり（応援）を取り消しました"と表示されていること' do
+        expect(page).to have_content('このミカンへの水やり（応援）を取り消しました')
+      end
+
+      it '水やりしたユーザ名が表示されていないこと' do
+        expect(page).to_not have_content('@a-know')
+      end
     end
   end
 end
