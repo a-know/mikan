@@ -16,9 +16,13 @@
     オーナー
   </div>
   <div class="panel-body">
-    <%= link_to(url_for_twitter(@mikanz.owner)) do %>
-      <%= image_tag @mikanz.owner.image_url %>
-      <%= "@#{@mikanz.owner.nickname}" %>
+    <% if @mikanz.owner %>
+      <%= link_to(url_for_twitter(@mikanz.owner)) do %>
+        <%= image_tag @mikanz.owner.image_url %>
+        <%= "@#{@mikanz.owner.nickname}" %>
+      <% end %>
+    <% else %>
+      退会済みユーザ
     <% end %>
   </div>
 </div>
