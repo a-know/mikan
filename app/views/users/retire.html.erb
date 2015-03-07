@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>退会の確認</h1>
+</div>
+<% if current_user.errors.any? %>
+  <div class="alert alert-danager">
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>退会した場合、ユーザーに関するデータ（ミカン情報・画像）がすべて削除されます。</p>
+<p>本当に退会してよろしいですか？</p>
+<hr>
+<%= link_to 'ミカンの利用をやめる（退会する）', user_path, method: :delete, class: 'btn btn-danger' %>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :created_mikanzs, class_name: 'Mikanz', foreign_key: :owner_id
-  has_many :waterings
+  has_many :created_mikanzs, class_name: 'Mikanz', foreign_key: :owner_id, dependent: :nullify
+  has_many :waterings, dependent: :nullify
 
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
