@@ -25,6 +25,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'あなたのミカンを登録', new_mikanz_path %></li>
             <% if logged_in? %>
+              <li><%= link_to 'ミカンの利用をやめる（退会する）', retire_user_path %></li>
               <li><%= link_to 'ログアウト', logout_path %></li>
             <% else %>
               <li><%= link_to 'Twitter でログイン', '/auth/twitter' %></li>
