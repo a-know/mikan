@@ -4,6 +4,7 @@ module ApplicationHelper
   end
 
   def owner?(mikanz, user)
+    return false unless mikanz.owner
     return false unless user
     owner_id = mikanz.owner.id
     user_id  = user.id
