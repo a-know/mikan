@@ -18,15 +18,12 @@
   </h5>
 </div>
 
-<div class="panel panel-default">
-  <% if @mikanz.mikanz_image? %>
-    <div class="panel panel-default">
-      <div class="thumbnail">
-        <%= image_tag @mikanz.mikanz_image.url %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<% if @mikanz.mikanz_image? %>
+  <div class="panel panel-default thumbnail">
+    <%= image_tag @mikanz.mikanz_image.url %>
+  </div>
+<% end %>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     完成度
