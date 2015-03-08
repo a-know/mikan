@@ -8,6 +8,7 @@ class WateringsController < ApplicationController
   end
 
   def create
+    raise ActionController::RoutingError, '自分のミカンを自分で応援することはできません' if self_watering?
     watering = current_user.waterings.build do |w|
       w.mikanz_id = params[:mikanz_id]
     end
@@ -23,5 +24,12 @@ class WateringsController < ApplicationController
     watering = current_user.waterings.find_by!(mikanz_id: params[:mikanz_id])
     watering.destroy!
     redirect_to mikanz_path(params[:mikanz_id]), notice: 'このミカンへの水やり（応援）を取り消しました'
+  end
+
+  private
+
+  def self_watering?
+    mikanz = Mikanz.find(params[:mikanz_id])
+    current_user.id == mikanz.owner.id
   end
 end
