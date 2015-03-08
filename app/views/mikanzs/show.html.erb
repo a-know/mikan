@@ -2,6 +2,20 @@
   <h1>
     <%= @mikanz.name %>
   </h1>
+  <h5>
+    <div class="via">
+      <% if @mikanz.owner %>
+        <%= link_to(url_for_twitter(@mikanz.owner)) do %>
+          <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
+        <% end %>
+        <%= link_to(url_for_twitter(@mikanz.owner)) do %>
+          produced by <%= "@#{@mikanz.owner.nickname}" %>
+        <% end %>
+      <% else %>
+        退会済みユーザ
+      <% end %>
+    </div>
+  </h5>
 </div>
 
 <div class="panel panel-default">
@@ -12,27 +26,6 @@
       </div>
     </div>
   <% end %>
-  <div class="panel-heading">
-    オーナー
-  </div>
-  <div class="panel-body">
-    <% if @mikanz.owner %>
-      <%= link_to(url_for_twitter(@mikanz.owner)) do %>
-        <%= image_tag @mikanz.owner.image_url %>
-        <%= "@#{@mikanz.owner.nickname}" %>
-      <% end %>
-    <% else %>
-      退会済みユーザ
-    <% end %>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    制作開始時期
-  </div>
-  <div class="panel-body">
-    <%= @mikanz.start_time.strftime('%Y/%m/%d %H:%M') %>
-  </div>
 </div>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -48,6 +41,8 @@
   </div>
   <div class="panel-body">
     <%= @mikanz.content %>
+    <br>
+    <p class="via">（<%= @mikanz.start_time.strftime('%Y/%m/%d %H:%M') %> より製作開始）</p>
   </div>
 </div>
 <div>
