@@ -45,6 +45,9 @@ group :development, :test do
   # testing
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+
+  # add property commetn
+  gem 'annotate'
 end
 
 # for twitter-auth
