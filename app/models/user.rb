@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  provider   :string           not null
+#  uid        :string           not null
+#  nickname   :string           not null
+#  image_url  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class User < ActiveRecord::Base
   has_many :created_mikanzs, class_name: 'Mikanz', foreign_key: :owner_id, dependent: :nullify
   has_many :waterings, dependent: :nullify
