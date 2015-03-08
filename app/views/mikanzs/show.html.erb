@@ -19,9 +19,10 @@
 </div>
 
 <% if @mikanz.mikanz_image %>
-  <div class="panel panel-default thumbnail">
-    <%= image_tag @mikanz.mikanz_image.url %>
-    <hr>
+  <div class="panel panel-default">
+    <div class="thumbnail">
+      <%= image_tag @mikanz.mikanz_image.url %>
+    </div>
     <!-- <div class="panel panel-default">
       <div class="panel-heading">
         水やり（応援）してくれた人
