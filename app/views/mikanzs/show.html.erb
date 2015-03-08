@@ -59,7 +59,7 @@
     このミカンについて
   </div>
   <div class="panel-body">
-    <%= @mikanz.content %>
+    <%= simple_format(@mikanz.content) %>
     <br>
     <p class="via">（<%= @mikanz.start_time.strftime('%Y/%m/%d %H:%M') %> より製作開始）</p>
   </div>
