@@ -21,6 +21,28 @@
 <% if @mikanz.mikanz_image? %>
   <div class="panel panel-default thumbnail">
     <%= image_tag @mikanz.mikanz_image.url %>
+    <hr>
+    <!-- <div class="panel panel-default">
+      <div class="panel-heading">
+        水やり（応援）してくれた人
+      </div>
+    </div> -->
+    <div class="panel-body">
+      <ul class="list-unstyled">
+        <% @waterings.each do |watering| %>
+          <% if watering.user %>
+            <li>
+              <%= link_to(url_for_twitter(watering.user)) do %>
+                <%= image_tag watering.user.image_url, width: 20, height: 20 %>
+                <%= "@#{watering.user.nickname}" %>
+              <% end %>
+            </li>
+          <% else %>
+            退会済みユーザ
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
 
@@ -60,26 +82,4 @@
       <%= link_to '水やり（応援）する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
   <% end %>
-  <hr>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      水やり（応援）してくれた人
-    </div>
-    <div class="panel-body">
-      <ul class="list-unstyled">
-        <% @waterings.each do |watering| %>
-          <% if watering.user %>
-            <li>
-              <%= link_to(url_for_twitter(watering.user)) do %>
-                <%= image_tag watering.user.image_url, width: 20, height: 20 %>
-                <%= "@#{watering.user.nickname}" %>
-              <% end %>
-            </li>
-          <% else %>
-            退会済みユーザ
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 </div>
