@@ -55,7 +55,7 @@
     <%= link_to '登録内容を編集する', edit_mikanz_path(@mikanz), class: 'btn btn-info btn-lg btn-block' %>
     <%= link_to 'このミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
   <% end %>
-  <% unless @mikanz.owner %>
+  <% unless owner?(@mikanz, current_user) %>
     <% if @watering %>
       <%= link_to '水やり（応援）を取り消す', mikanz_watering_path(@mikanz, @watering), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
     <% elsif logged_in? %>
