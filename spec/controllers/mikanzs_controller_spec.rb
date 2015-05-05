@@ -68,6 +68,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz)).to be_persisted
         expect(assigns(:mikanz).name).to eq(@params[:name])
         expect(assigns(:mikanz).completion).to eq(@params[:completion])
+        expect(assigns(:mikanz).tag_list).to eq(@params[:tag_list].split(','))
       end
 
       it 'create mikanz in DB successfuly' do
@@ -109,7 +110,7 @@ RSpec.describe MikanzsController, :type => :controller do
         @mikanz = create(:mikanz)
         session[:user_id] = @mikanz.owner.id
       end
-      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", start_time: @mikanz.start_time, content: @mikanz.content} }
+      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", start_time: @mikanz.start_time, content: @mikanz.content, tag_list: '鉄細工,DIY'} }
 
       it 'return 200 as status code' do
         expect(response.status).to eq(200)
@@ -125,6 +126,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).errors).to be_empty
         expect(assigns(:mikanz)).to be_persisted
         expect(assigns(:mikanz).name).to eq('変更後')
+        expect(assigns(:mikanz).tag_list).to eq(['鉄細工', 'DIY'])
       end
 
       it 'DB内のレコードが更新されていること' do
