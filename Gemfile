@@ -80,3 +80,4 @@ gem 'fog'
 
 # for tag
 gem 'acts-as-taggable-on'
+gem 'jquery-ui-rails'
