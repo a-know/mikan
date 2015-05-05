@@ -18,7 +18,7 @@ class Mikanz < ActiveRecord::Base
   mount_uploader :mikanz_image, MikanzImageUploader
 
   acts_as_paranoid
-  acts_as_taggable
+  acts_as_ordered_taggable_on :tags
 
   has_many :waterings, dependent: :destroy
   belongs_to :owner, class_name: 'User'
