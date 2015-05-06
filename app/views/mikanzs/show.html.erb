@@ -62,6 +62,11 @@
   <div class="panel-body">
     <%= simple_format(@mikanz.content) %>
     <br>
+    <% unless @mikanz.tag_list.empty? %>
+      <% @mikanz.tag_list.each do |tag| %>
+        <span class="label label-success mikanz-tag"><%= tag %></span>
+      <% end %>
+    <% end %>
     <p class="via">（<%= @mikanz.start_time.strftime('%Y/%m/%d %H:%M') %> より製作開始）</p>
   </div>
 </div>
