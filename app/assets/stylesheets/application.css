@@ -12,6 +12,8 @@
  *
  *= require fonts
  *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
  *= require bootstrap.min
  *= require bootstrap-theme.min
  *= require custom

@@ -44,6 +44,6 @@ class MikanzsController < ApplicationController
   private
 
   def mikanz_param
-    params.require(:mikanz).permit(:name, :content, :start_time, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image)
+    params.require(:mikanz).permit(:name, :content, :start_time, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image, :tag_list)
   end
 end

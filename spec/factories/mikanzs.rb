@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # == Schema Information
 #
 # Table name: mikanzs
@@ -24,5 +26,6 @@ FactoryGirl.define do
     sequence(:mikanz_image)       { |i| "MyString-#{i}.jpg" }
     sequence(:mikanz_image_cache) { |i| "MyString-#{i}.jpg.cache" }
     remove_mikanz_image false
+    tag_list '手芸,手作り'
   end
 end

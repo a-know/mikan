@@ -33,6 +33,7 @@
                 <p class="list-group-item-text">
                   完成度：<%= mikanz.completion %> %
                 </p>
+                <%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
               <% end %>
             <% end %>
           </div>
