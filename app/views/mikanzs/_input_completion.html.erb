@@ -1,0 +1,8 @@
+    <%= f.select :completion,
+          [
+            ["アイデアだけ", "justidea"],
+            ["着手はした", "start"],
+            ["鋭意作成中", "wip"],
+            ["完成間近", "nearing"],
+            ["やる気待ち", "motivation"]
+          ], { class: "selectpicker" } %>

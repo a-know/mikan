@@ -17,6 +17,5 @@
  *= require bootstrap.min
  *= require bootstrap-theme.min
  *= require custom
- *= require bootstrap-slider
  *= require_self
  */

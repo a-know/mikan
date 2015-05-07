@@ -16,5 +16,4 @@
 //= require tag-it
 //= require turbolinks
 //= require bootstrap.min
-//= require bootstrap-slider
 //= require_tree .

@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1>
+    <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
     <%= @mikanz.name %>
   </h1>
   <h5>
@@ -47,14 +48,6 @@
   </div>
 <% end %>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    完成度
-  </div>
-  <div class="panel-body">
-    <%= @mikanz.completion %> %
-  </div>
-</div>
 <div class="panel panel-default">
   <div class="panel-heading">
     このミカンについて

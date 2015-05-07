@@ -32,21 +32,6 @@ RSpec.describe Mikanz, :type => :model do
   end
   describe '#completion' do
     it { should validate_presence_of(:completion) }
-    it { should validate_numericality_of(:completion) }
-    context 'value is less than 0' do
-      it 'not valid' do
-        mikanz = Mikanz.new(completion: -1)
-        mikanz.valid?
-        expect(mikanz.errors[:completion]).to be_present
-      end
-    end
-    context 'value is more than 99' do
-      it 'not valid' do
-        mikanz = Mikanz.new(completion: 100)
-        mikanz.valid?
-        expect(mikanz.errors[:completion]).to be_present
-      end
-    end
   end
 
   describe '#created_by?' do

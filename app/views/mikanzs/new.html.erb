@@ -27,14 +27,7 @@
   </div>
   <div class="form-group">
     <%= f.label :completion %>
-    <div>
-      <%= f.text_field :completion, id: 'completionSlider', type: 'text',
-                   data: {'slider-id' => 'completionSlider',
-                          'slider-min' => '0',
-                          'slider-max' => '99',
-                          'slider-step' => '1',
-                          'slider-value' => '50' } %>
-    </div>
+    <%= render partial: 'input_completion', locals: { f: f } %>
   </div>
   <div class="form-group">
     <%= f.label :tag_list %>
