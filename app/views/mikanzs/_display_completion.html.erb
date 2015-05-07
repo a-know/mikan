@@ -1,0 +1,12 @@
+                  <% case %>
+                  <% when mikanz.justidea? %>
+                    <span class="label label-warning">アイデアだけ</span>
+                  <% when mikanz.start? %>
+                    <span class="label label-warning">着手はした</span>
+                  <% when mikanz.wip? %>
+                    <span class="label label-warning">鋭意作成中</span>
+                  <% when mikanz.nearing? %>
+                    <span class="label label-warning">完成間近</span>
+                  <% else %>
+                    <span class="label label-warning">やる気待ち</span>
+                  <% end %>
