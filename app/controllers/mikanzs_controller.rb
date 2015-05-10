@@ -42,13 +42,13 @@ class MikanzsController < ApplicationController
     @waterings = @mikanz.waterings.includes(:user).order(:created_at)
   end
 
-  def set_available_tags_to_gon
-    gon.available_tags = Mikanz.tags_on(:tags).pluck(:name)
-  end
-
   private
 
   def mikanz_param
     params.require(:mikanz).permit(:name, :content, :start_time, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image, :tag_list)
+  end
+
+  def set_available_tags_to_gon
+    gon.available_tags = Mikanz.tags_on(:tags).pluck(:name)
   end
 end
