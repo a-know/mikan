@@ -81,3 +81,6 @@ gem 'fog'
 # for tag
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
+
+# for tag-auto-complete
+gem 'gon'
