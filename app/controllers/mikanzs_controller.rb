@@ -2,6 +2,7 @@
 
 class MikanzsController < ApplicationController
   before_action :authenticate, except: :show
+  before_action :set_available_tags_to_gon, only: [:new, :edit, :update]
 
   def new
     @mikanz = current_user.created_mikanzs.build
@@ -45,5 +46,9 @@ class MikanzsController < ApplicationController
 
   def mikanz_param
     params.require(:mikanz).permit(:name, :content, :start_time, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image, :tag_list)
+  end
+
+  def set_available_tags_to_gon
+    gon.available_tags = Mikanz.tags_on(:tags).pluck(:name)
   end
 end
