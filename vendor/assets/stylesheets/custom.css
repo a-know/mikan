@@ -33,3 +33,7 @@ body {
   text-align: right;
   color: #999;
 }
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
