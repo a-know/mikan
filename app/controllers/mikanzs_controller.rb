@@ -2,6 +2,7 @@
 
 class MikanzsController < ApplicationController
   before_action :authenticate, except: :show
+  before_action :set_available_tags_to_gon, only: [:new, :edit, :update]
 
   def new
     @mikanz = current_user.created_mikanzs.build
@@ -39,6 +40,10 @@ class MikanzsController < ApplicationController
     @mikanz = Mikanz.find(params[:id])
     @watering  = current_user && current_user.waterings.find_by(mikanz_id: params[:id])
     @waterings = @mikanz.waterings.includes(:user).order(:created_at)
+  end
+
+  def set_available_tags_to_gon
+    gon.available_tags = Mikanz.tags_on(:tags).pluck(:name)
   end
 
   private
