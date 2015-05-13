@@ -8,15 +8,12 @@
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <p>ミカンズは、未だ完成を見ていない、甘くて酸っぱい "ミカン" が集まる場所。</p>
-
-          <p>それを「作ろう」、と思ったとき、誰もが驚く野望を隠し持っていたはず。</p>
-
-          <p>「まぁいいか」なんて言わないで。</p>
-
-          <p>がんばってやってみよう、上向いて。</p>
-
-          <p class="via">via - <a href="http://ja.wikipedia.org/wiki/%E4%B8%89%E6%97%A5%E6%9C%88%E3%83%AD%E3%83%83%E3%82%AF">ミカンズのテーマ／スピッツ</a></p>
+          <h4>ミカンの木（よく使われているタグ）</h4>
+          <div class="tagcloud">
+            <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+              <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search }, class: 'label label-success mikanz-tag ' + css_class) %>
+            <% end %>
+          </div>
         </div>
         <hr>
         <div class="span6">
