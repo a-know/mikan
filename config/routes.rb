@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :mikanzs do
+    collection do
+      get 'tag_search'
+    end
     resources :waterings
   end
 end
