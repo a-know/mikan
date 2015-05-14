@@ -46,6 +46,9 @@ group :development, :test do
 
   # add property commetn
   gem 'annotate'
+
+  # for better development
+  gem 'rails_best_practices'
 end
 
 # for twitter-auth
