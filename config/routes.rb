@@ -1,14 +1,6 @@
 # == Route Map
 #
 #              Prefix Verb   URI Pattern                                 Controller#Action
-#             mikanzs GET    /mikanzs(.:format)                          mikanzs#index
-#                     POST   /mikanzs(.:format)                          mikanzs#create
-#          new_mikanz GET    /mikanzs/new(.:format)                      mikanzs#new
-#         edit_mikanz GET    /mikanzs/:id/edit(.:format)                 mikanzs#edit
-#              mikanz GET    /mikanzs/:id(.:format)                      mikanzs#show
-#                     PATCH  /mikanzs/:id(.:format)                      mikanzs#update
-#                     PUT    /mikanzs/:id(.:format)                      mikanzs#update
-#                     DELETE /mikanzs/:id(.:format)                      mikanzs#destroy
 #                root GET    /                                           top#index
 #                     GET    /auth/:provider/callback(.:format)          sessions#create
 #              logout GET    /logout(.:format)                           sessions#destroy
@@ -18,19 +10,17 @@
 #    mikanz_waterings POST   /mikanzs/:mikanz_id/waterings(.:format)     waterings#create
 # new_mikanz_watering GET    /mikanzs/:mikanz_id/waterings/new(.:format) waterings#new
 #     mikanz_watering DELETE /mikanzs/:mikanz_id/waterings/:id(.:format) waterings#destroy
-#                     GET    /mikanzs(.:format)                          mikanzs#index
+#             mikanzs GET    /mikanzs(.:format)                          mikanzs#index
 #                     POST   /mikanzs(.:format)                          mikanzs#create
-#                     GET    /mikanzs/new(.:format)                      mikanzs#new
-#                     GET    /mikanzs/:id/edit(.:format)                 mikanzs#edit
-#                     GET    /mikanzs/:id(.:format)                      mikanzs#show
+#          new_mikanz GET    /mikanzs/new(.:format)                      mikanzs#new
+#         edit_mikanz GET    /mikanzs/:id/edit(.:format)                 mikanzs#edit
+#              mikanz GET    /mikanzs/:id(.:format)                      mikanzs#show
 #                     PATCH  /mikanzs/:id(.:format)                      mikanzs#update
 #                     PUT    /mikanzs/:id(.:format)                      mikanzs#update
 #                     DELETE /mikanzs/:id(.:format)                      mikanzs#destroy
 #
 
 Rails.application.routes.draw do
-  resources :mikanzs
-
   root to: 'top#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
