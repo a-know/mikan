@@ -25,9 +25,6 @@ RSpec.describe Mikanz, :type => :model do
     it { should validate_presence_of(:content) }
     it { should validate_length_of(:content).is_at_most(2000) }
   end
-  describe '#start_time' do
-    it { should validate_presence_of(:start_time) }
-  end
   describe '#completion' do
     it { should validate_presence_of(:completion) }
   end

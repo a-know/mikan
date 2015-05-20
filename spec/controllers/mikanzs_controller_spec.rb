@@ -110,7 +110,7 @@ RSpec.describe MikanzsController, :type => :controller do
         @mikanz = create(:mikanz)
         session[:user_id] = @mikanz.owner.id
       end
-      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", start_time: @mikanz.start_time, content: @mikanz.content, tag_list: '鉄細工,DIY'} }
+      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", content: @mikanz.content, tag_list: '鉄細工,DIY'} }
 
       it 'return 200 as status code' do
         expect(response.status).to eq(200)
