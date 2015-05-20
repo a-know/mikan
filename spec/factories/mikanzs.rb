@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 # == Schema Information
 #
 # Table name: mikanzs
@@ -7,12 +6,11 @@
 #  id           :integer          not null, primary key
 #  owner_id     :integer
 #  name         :string           not null
-#  start_time   :datetime         not null
 #  content      :text             not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #  deleted_at   :datetime
-#  completion   :integer          default("0")
+#  completion   :integer          default(0)
 #  mikanz_image :string
 #
 
