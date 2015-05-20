@@ -6,15 +6,13 @@
 #  id           :integer          not null, primary key
 #  owner_id     :integer
 #  name         :string           not null
-#  start_time   :datetime         not null
 #  content      :text             not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #  deleted_at   :datetime
-#  completion   :integer          default("0")
+#  completion   :integer          default(0)
 #  mikanz_image :string
 #
-
 
 require 'rails_helper'
 
@@ -26,9 +24,6 @@ RSpec.describe Mikanz, :type => :model do
   describe '#content' do
     it { should validate_presence_of(:content) }
     it { should validate_length_of(:content).is_at_most(2000) }
-  end
-  describe '#start_time' do
-    it { should validate_presence_of(:start_time) }
   end
   describe '#completion' do
     it { should validate_presence_of(:completion) }
