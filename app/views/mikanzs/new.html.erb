@@ -20,6 +20,24 @@
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.select :start_year, ((Date.today.year - 30)..Date.today.year).map {|y| [y, y]}, { class: "selectpicker", selected: Date.today.year } %> 年
+    <%= f.select :start_month,
+      [
+        [1,1],
+        [2,2],
+        [3,3],
+        [4,4],
+        [5,5],
+        [6,6],
+        [7,7],
+        [8,8],
+        [9,9],
+        [10,10],
+        [11,11],
+        [12,12],
+      ], { class: "selectpicker", selected: Date.today.month } %> 月
+  </div>
+  <div class="form-group">
     <%= f.label :completion %>
     <%= render partial: 'input_completion', locals: { f: f } %>
   </div>
