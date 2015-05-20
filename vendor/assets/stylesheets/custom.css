@@ -5,7 +5,7 @@ h1 {
 body {
   padding-top: 20px;
   padding-bottom: 40px;
-  font-family: mplus-1p-regular;
+  font-family: 'YuGothic', 'Yu Gothic','游ゴシック','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ','Meiryo',sans-serif;
 }
 /* Custom container */
 .container-narrow {
