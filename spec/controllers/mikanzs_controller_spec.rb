@@ -69,6 +69,8 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).name).to eq(@params[:name])
         expect(assigns(:mikanz).completion).to eq(@params[:completion])
         expect(assigns(:mikanz).tag_list).to eq(@params[:tag_list].split(','))
+        expect(assigns(:mikanz).start_year).to eq(@params[:start_year])
+        expect(assigns(:mikanz).start_month).to eq(@params[:start_month])
       end
 
       it 'create mikanz in DB successfuly' do

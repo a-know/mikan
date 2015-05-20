@@ -45,7 +45,7 @@ class MikanzsController < ApplicationController
   private
 
   def mikanz_param
-    params.require(:mikanz).permit(:name, :content, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image, :tag_list)
+    params.require(:mikanz).permit(:name, :content, :completion, :mikanz_image, :mikanz_image_cache, :remove_mikanz_image, :tag_list, :start_year, :start_month)
   end
 
   def set_available_tags_to_gon

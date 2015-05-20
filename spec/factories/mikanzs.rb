@@ -26,5 +26,7 @@ FactoryGirl.define do
     sequence(:mikanz_image_cache) { |i| "MyString-#{i}.jpg.cache" }
     remove_mikanz_image false
     tag_list '手芸,手作り'
+    start_year 2015
+    start_month 5
   end
 end
