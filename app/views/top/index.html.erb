@@ -26,11 +26,9 @@
                   <%= mikanz.name %>
                 </h4>
                 <p class="list-group-item-text">
-                  制作開始時期：
-                </p>
-                <p class="list-group-item-text">
                   タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
                 </p>
+                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %>）</p>
               <% end %>
             <% end %>
           </div>

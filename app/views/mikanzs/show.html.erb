@@ -56,7 +56,7 @@
     <%= simple_format(@mikanz.content) %>
     <br>
     <%= render partial: 'tags', locals: { mikanz: @mikanz } %>
-    <p class="via">（ より製作開始）</p>
+    <p class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</p>
   </div>
 </div>
 <div>
