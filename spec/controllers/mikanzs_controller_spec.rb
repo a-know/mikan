@@ -112,7 +112,7 @@ RSpec.describe MikanzsController, :type => :controller do
         @mikanz = create(:mikanz)
         session[:user_id] = @mikanz.owner.id
       end
-      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", content: @mikanz.content, tag_list: '鉄細工,DIY'} }
+      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", content: @mikanz.content, tag_list: '鉄細工,DIY', start_year: 1982, start_month: 3} }
 
       it 'return 200 as status code' do
         expect(response.status).to eq(200)
@@ -129,6 +129,8 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz)).to be_persisted
         expect(assigns(:mikanz).name).to eq('変更後')
         expect(assigns(:mikanz).tag_list).to eq(['鉄細工', 'DIY'])
+        expect(assigns(:mikanz).start_year).to eq(1982)
+        expect(assigns(:mikanz).start_month).to eq(3)
       end
 
       it 'DB内のレコードが更新されていること' do
