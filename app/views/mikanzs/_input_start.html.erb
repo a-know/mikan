@@ -1,0 +1,16 @@
+    <%= f.select :start_year, ((Date.today.year - 30)..Date.today.year).map {|y| [y, y]}, { class: "selectpicker", selected: mikanz.start_year || Date.today.year } %> 年
+    <%= f.select :start_month,
+      [
+        [1,1],
+        [2,2],
+        [3,3],
+        [4,4],
+        [5,5],
+        [6,6],
+        [7,7],
+        [8,8],
+        [9,9],
+        [10,10],
+        [11,11],
+        [12,12],
+      ], { class: "selectpicker", selected: mikanz.start_month || Date.today.month } %> 月

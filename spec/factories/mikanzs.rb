@@ -12,6 +12,8 @@
 #  deleted_at   :datetime
 #  completion   :integer          default(0)
 #  mikanz_image :string
+#  start_year   :integer
+#  start_month  :integer
 #
 
 FactoryGirl.define do
@@ -24,5 +26,7 @@ FactoryGirl.define do
     sequence(:mikanz_image_cache) { |i| "MyString-#{i}.jpg.cache" }
     remove_mikanz_image false
     tag_list '手芸,手作り'
+    start_year 2015
+    start_month 5
   end
 end

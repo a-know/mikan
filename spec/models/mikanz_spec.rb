@@ -12,6 +12,8 @@
 #  deleted_at   :datetime
 #  completion   :integer          default(0)
 #  mikanz_image :string
+#  start_year   :integer
+#  start_month  :integer
 #
 
 require 'rails_helper'

@@ -20,6 +20,10 @@
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :start_year_month %>
+    <%= render partial: 'input_start', locals: { f: f, mikanz: @mikanz } %>
+  </div>
+  <div class="form-group">
     <%= f.label :completion %>
     <%= render partial: 'input_completion', locals: { f: f } %>
   </div>
