@@ -13,6 +13,7 @@
 #  mikanz_image :string
 #  start_year   :integer
 #  start_month  :integer
+#  url          :string
 #
 
 class Mikanz < ActiveRecord::Base
