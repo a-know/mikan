@@ -31,6 +31,26 @@ RSpec.describe Mikanz, :type => :model do
   describe '#completion' do
     it { should validate_presence_of(:completion) }
   end
+  describe '#url' do
+    context 'URL の形式に合致していない場合' do
+      let(:invalid_mikanz) { Mikanz.new(attributes_for(:mikanz).merge(url: 'a')) }
+      it 'is invalid' do
+        expect(invalid_mikanz.valid?).to be_falsey
+      end
+    end
+    context 'http, https 以外のスキーマだった場合' do
+      let(:invalid_mikanz) { Mikanz.new(attributes_for(:mikanz).merge(url: 'ftp://www.a-know.jp')) }
+      it 'is invalid' do
+        expect(invalid_mikanz.valid?).to be_falsey
+      end
+    end
+    context '空だった場合' do
+      let(:invalid_mikanz) { Mikanz.new(attributes_for(:mikanz).merge(url: nil)) }
+      it 'is invalid' do
+        expect(invalid_mikanz.valid?).to be_truthy
+      end
+    end
+  end
 
   describe '#created_by?' do
     before { @mikanz = create(:mikanz) }

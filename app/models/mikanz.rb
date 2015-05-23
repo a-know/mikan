@@ -30,6 +30,7 @@ class Mikanz < ActiveRecord::Base
   validates :name, length: { maximum: 50 }, presence: true
   validates :content, length: { maximum: 2000 }, presence: true
   validates :completion, presence: true
+  validates :url, { :allow_blank => true, :format => URI::regexp(%w(http https)) }
 
   def created_by?(user)
     return false unless user
