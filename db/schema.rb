@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520131158) do
+ActiveRecord::Schema.define(version: 20150523154250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150520131158) do
     t.string   "mikanz_image"
     t.integer  "start_year"
     t.integer  "start_month"
+    t.string   "url"
   end
 
   add_index "mikanzs", ["deleted_at"], name: "index_mikanzs_on_deleted_at", using: :btree
