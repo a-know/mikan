@@ -15,7 +15,7 @@
           <h4>ミカンの木（よく使われているタグ）</h4>
           <div class="tagcloud">
             <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-              <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search }, class: 'label label-success mikanz-tag ' + css_class) %>
+              <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag.name }, class: 'label label-success mikanz-tag ' + css_class) %>
             <% end %>
           </div>
         </div>

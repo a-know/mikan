@@ -55,7 +55,11 @@
   <div class="panel-body">
     <%= simple_format(@mikanz.content) %>
     <br>
-    <%= render partial: 'tags', locals: { mikanz: @mikanz } %>
+    <% unless @mikanz.tag_list.empty? %>
+      <% @mikanz.tag_list.each do |tag| %>
+        <%= link_to(tag, { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag }, class: 'label label-success mikanz-tag') %>
+      <% end %>
+    <% end %>
     <p class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</p>
   </div>
 </div>
