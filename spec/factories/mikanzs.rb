@@ -29,5 +29,6 @@ FactoryGirl.define do
     tag_list '手芸,手作り'
     start_year 2015
     start_month 5
+    url 'http://home.a-know.me/'
   end
 end
