@@ -48,7 +48,7 @@ body {
 }
 
 .topdiv {
-  background-image: url(top.jpg);
+  background-image: url(/images/top.jpg);
   background-size:cover;
 }
 
