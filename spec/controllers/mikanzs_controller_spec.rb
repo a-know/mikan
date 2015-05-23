@@ -208,4 +208,34 @@ RSpec.describe MikanzsController, :type => :controller do
     end
   end
 
+  describe 'GET #tag_search' do
+    let(:mikanz1) { create(:mikanz, tag_list: 'aaa,bbb') }
+    let(:mikanz2) { create(:mikanz, tag_list: 'aaa,ccc') }
+    let(:mikanz3) { create(:mikanz, tag_list: 'ddd') }
+    before do
+      mikanz1
+      mikanz2
+      mikanz3
+    end
+    context 'when specified tag_name which exists' do
+      subject { get :tag_search, tag_name: 'aaa' }
+
+      it 'set a find result object to @tag_name and @mikanzs' do
+        subject
+        expect(assigns(:tag_name)).to eq('aaa')
+        expect(assigns(:mikanzs)).to eq([mikanz1, mikanz2])
+      end
+    end
+
+    context 'when specified tag_name which does not exists' do
+      subject { get :tag_search, tag_name: 'eee' }
+
+      it 'set a tag_name to @tag_name and empty array to @mikanzs' do
+        subject
+        expect(assigns(:tag_name)).to eq('eee')
+        expect(assigns(:mikanzs)).to eq([])
+      end
+    end
+  end
+
 end

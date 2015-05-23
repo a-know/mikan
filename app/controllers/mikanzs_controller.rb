@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MikanzsController < ApplicationController
-  before_action :authenticate, except: :show
+  before_action :authenticate, except: [:show, :tag_search]
   before_action :set_available_tags_to_gon, only: [:new, :edit, :update]
 
   def new
@@ -40,6 +40,11 @@ class MikanzsController < ApplicationController
     @mikanz = Mikanz.find(params[:id])
     @watering  = current_user && current_user.waterings.find_by(mikanz_id: params[:id])
     @waterings = @mikanz.waterings.includes(:user).order(:created_at)
+  end
+
+  def tag_search
+    @tag_name = params[:tag_name]
+    @mikanzs = Mikanz.tagged_with(@tag_name)
   end
 
   private
