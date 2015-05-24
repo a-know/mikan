@@ -268,22 +268,22 @@ RSpec.describe MikanzsController, :type => :controller do
       mikanz5
     end
 
-    context 'when specifed user_uid which has some mikanzs' do
-      subject { get :users_mikanzs, user_uid: user2.uid }
+    context 'when specifed user_nickname which has some mikanzs' do
+      subject { get :users_mikanzs, user_nickname: user2.nickname }
 
-      it 'set a find result object to @user_uid and @mikanzs' do
+      it 'set a find result object to @user_nickname and @mikanzs' do
         subject
-        expect(assigns(:user_uid)).to eq(user2.uid)
+        expect(assigns(:user_nickname)).to eq(user2.nickname)
         expect(assigns(:mikanzs)).to eq([mikanz4, mikanz2])
       end
     end
 
-    context 'when specifed user_uid which has no mikanzs' do
-      subject { get :users_mikanzs, user_uid: user3.uid }
+    context 'when specifed user_nickname which has no mikanzs' do
+      subject { get :users_mikanzs, user_nickname: user3.nickname }
 
-      it 'set a find result object to @user_uid and empty array to @mikanzs' do
+      it 'set a find result object to @user_nickname and empty array to @mikanzs' do
         subject
-        expect(assigns(:user_uid)).to eq(user3.uid)
+        expect(assigns(:user_nickname)).to eq(user3.nickname)
         expect(assigns(:mikanzs)).to eq([])
       end
     end

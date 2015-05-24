@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get 'retire'
   end
 
-  resources :users, param: :uid, only: [] do
+  resources :users, param: :nickname, only: [] do
     scope controller: :mikanzs do
       get :mikanzs, action: :users_mikanzs
     end

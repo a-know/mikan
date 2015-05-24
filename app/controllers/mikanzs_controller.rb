@@ -48,8 +48,8 @@ class MikanzsController < ApplicationController
   end
 
   def users_mikanzs
-    @user_uid = params[:user_uid]
-    @mikanzs = User.where(uid: @user_uid).take.created_mikanzs.order('created_at DESC')
+    @user_nickname = params[:user_nickname]
+    @mikanzs = User.where(nickname: @user_nickname).take.created_mikanzs.order('created_at DESC')
   end
 
   private
