@@ -6,12 +6,11 @@
   <h5>
     <div class="via">
       <% if @mikanz.owner %>
-        <%= link_to(url_for_twitter(@mikanz.owner)) do %>
+        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
           <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
         <% end %>
-        <%= link_to(url_for_twitter(@mikanz.owner)) do %>
-          produced by <%= "@#{@mikanz.owner.nickname}" %>
-        <% end %>
+        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>produced by <%= "#{@mikanz.owner.nickname}" %><% end %>
+        （<%= link_to(url_for_twitter(@mikanz.owner)) do %><%= "@#{@mikanz.owner.nickname}" %><% end %>）
       <% else %>
         退会済みユーザ
       <% end %>

@@ -3,6 +3,10 @@ module ApplicationHelper
     "https://twitter.com/#{user.nickname}"
   end
 
+  def url_for_users_mikanzs(user)
+    "/users/#{user.nickname}/mikanzs"
+  end
+
   def owner?(mikanz, user)
     return false unless mikanz.owner
     return false unless user

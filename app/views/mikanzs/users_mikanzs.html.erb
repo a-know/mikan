@@ -1,6 +1,7 @@
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4>タグ <span class="label label-success mikanz-tag"><%= @tag_name %></span> を持つミカン一覧</h4>
+          <h4><%= image_tag @user.image_url, width: 25, height: 25 %>
+            <%= @user.nickname %>さんのミカン一覧</h4>
           <div class="list-group">
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'list-group-item') do %>
@@ -11,9 +12,7 @@
                 <p class="list-group-item-text">
                   タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
                 </p>
-                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %> by <%= "#{mikanz.owner.nickname}" %>
-                  <%= image_tag mikanz.owner.image_url, width: 20, height: 20 %>
-                  ）</p>
+                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %>）</p>
               <% end %>
             <% end %>
           </div>

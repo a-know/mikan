@@ -51,7 +51,7 @@ describe User, :type => :model do
         end.to_not change{ User.count }
         expect(@created_user.provider).to  eq('twitter')
         expect(@created_user.uid).to       eq(@owner.uid)
-        expect(@created_user.nickname).to  eq('えーの')
+        expect(@created_user.nickname).to  eq(@owner.nickname)
         expect(@created_user.image_url).to eq('http://example.com/a-know.jpg')
       end
     end
