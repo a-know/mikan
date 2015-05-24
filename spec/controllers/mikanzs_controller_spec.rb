@@ -273,7 +273,7 @@ RSpec.describe MikanzsController, :type => :controller do
 
       it 'set a find result object to @user_nickname and @mikanzs' do
         subject
-        expect(assigns(:user_nickname)).to eq(user2.nickname)
+        expect(assigns(:user)).to eq(user2)
         expect(assigns(:mikanzs)).to eq([mikanz4, mikanz2])
       end
     end
@@ -283,7 +283,7 @@ RSpec.describe MikanzsController, :type => :controller do
 
       it 'set a find result object to @user_nickname and empty array to @mikanzs' do
         subject
-        expect(assigns(:user_nickname)).to eq(user3.nickname)
+        expect(assigns(:user)).to eq(user3)
         expect(assigns(:mikanzs)).to eq([])
       end
     end
