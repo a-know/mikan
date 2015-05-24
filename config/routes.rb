@@ -6,6 +6,7 @@
 #              logout GET    /logout(.:format)                           sessions#destroy
 #         retire_user GET    /user/retire(.:format)                      users#retire
 #                user DELETE /user(.:format)                             users#destroy
+#        user_mikanzs GET    /users/:user_uid/mikanzs(.:format)          mikanzs#index
 #  tag_search_mikanzs GET    /mikanzs/tag_search(.:format)               mikanzs#tag_search
 #    mikanz_waterings POST   /mikanzs/:mikanz_id/waterings(.:format)     waterings#create
 # new_mikanz_watering GET    /mikanzs/:mikanz_id/waterings/new(.:format) waterings#new
@@ -27,6 +28,10 @@ Rails.application.routes.draw do
 
   resource :user, only: :destroy do
     get 'retire'
+  end
+
+  resources :users, param: :uid, only: [] do
+    resources :mikanzs, only: [:index]
   end
 
   resources :mikanzs do
