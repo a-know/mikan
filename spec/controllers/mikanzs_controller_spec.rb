@@ -71,6 +71,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).tag_list).to eq(@params[:tag_list].split(','))
         expect(assigns(:mikanz).start_year).to eq(@params[:start_year])
         expect(assigns(:mikanz).start_month).to eq(@params[:start_month])
+        expect(assigns(:mikanz).url).to eq(@params[:url])
       end
 
       it 'create mikanz in DB successfuly' do
@@ -112,7 +113,18 @@ RSpec.describe MikanzsController, :type => :controller do
         @mikanz = create(:mikanz)
         session[:user_id] = @mikanz.owner.id
       end
-      subject { put :update, id: @mikanz.id, mikanz: { name: "変更後", content: @mikanz.content, tag_list: '鉄細工,DIY', start_year: 1982, start_month: 3} }
+      subject do
+        put :update,
+          id: @mikanz.id,
+          mikanz: {
+            name: "変更後",
+            content: @mikanz.content,
+            tag_list: '鉄細工,DIY',
+            start_year: 1982,
+            start_month: 3,
+            url: 'http://blog.a-know.me/',
+          }
+      end
 
       it 'return 200 as status code' do
         expect(response.status).to eq(200)
@@ -131,6 +143,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).tag_list).to eq(['鉄細工', 'DIY'])
         expect(assigns(:mikanz).start_year).to eq(1982)
         expect(assigns(:mikanz).start_month).to eq(3)
+        expect(assigns(:mikanz).url).to eq('http://blog.a-know.me/')
       end
 
       it 'DB内のレコードが更新されていること' do
