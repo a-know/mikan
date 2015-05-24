@@ -1,6 +1,7 @@
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4><%= @user.nickname %>さんのミカン一覧</h4>
+          <h4><%= image_tag @user.image_url, width: 25, height: 25 %>
+            <%= @user.nickname %>さんのミカン一覧</h4>
           <div class="list-group">
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'list-group-item') do %>
