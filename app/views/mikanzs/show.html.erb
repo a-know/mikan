@@ -22,7 +22,7 @@
 <% if @mikanz.mikanz_image %>
   <div class="panel panel-default">
     <div class="thumbnail">
-      <%= image_tag @mikanz.mikanz_image.url %>
+      <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url %></a>
     </div>
     <!-- <div class="panel panel-default">
       <div class="panel-heading">
