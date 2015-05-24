@@ -22,7 +22,11 @@
 <% if @mikanz.mikanz_image %>
   <div class="panel panel-default">
     <div class="thumbnail mikanzimg">
-      <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %></a>
+      <% if @mikanz.url.blank? %>
+        <%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %>
+      <% else %>
+        <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %></a>
+      <% end %>
     </div>
     <!-- <div class="panel panel-default">
       <div class="panel-heading">
