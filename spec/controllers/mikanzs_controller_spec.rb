@@ -251,4 +251,41 @@ RSpec.describe MikanzsController, :type => :controller do
     end
   end
 
+  describe 'GET #users_mikanzs' do
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+    let(:user3) { create(:user) }
+    let(:mikanz1) { create(:mikanz, owner: user1) }
+    let(:mikanz2) { create(:mikanz, owner: user2) }
+    let(:mikanz3) { create(:mikanz, owner: user1) }
+    let(:mikanz4) { create(:mikanz, owner: user2) }
+    let(:mikanz5) { create(:mikanz, owner: user1) }
+    before do
+      mikanz1
+      mikanz2
+      mikanz3
+      mikanz4
+      mikanz5
+    end
+
+    context 'when specifed user_uid which has some mikanzs' do
+      subject { get :users_mikanzs, user_uid: user2.uid }
+
+      it 'set a find result object to @user_uid and @mikanzs' do
+        subject
+        expect(assigns(:user_uid)).to eq(user2.uid)
+        expect(assigns(:mikanzs)).to eq([mikanz4, mikanz2])
+      end
+    end
+
+    context 'when specifed user_uid which has no mikanzs' do
+      subject { get :users_mikanzs, user_uid: user3.uid }
+
+      it 'set a find result object to @user_uid and empty array to @mikanzs' do
+        subject
+        expect(assigns(:user_uid)).to eq(user3.uid)
+        expect(assigns(:mikanzs)).to eq([])
+      end
+    end
+  end
 end
