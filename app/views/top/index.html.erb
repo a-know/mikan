@@ -12,7 +12,18 @@
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4>ミカンの木（よく使われているタグ）</h4>
+          <h3>Mikanz -ミカンズ- って、なに？</h3>
+          <p><strong>Mikanz -ミカンズ-</strong> は、「みんなの未完成品（ミカン）が集まる場所」。</p>
+          <p>あなたの未完成品（ミカン）を登録して、そのまま他人に見てもらいましょう。</p>
+          <p>アイデアだけの状態でもかまいません。</p>
+          <p>あなたの未完成品（ミカン）の登録ができたら、今度は、ほかの人の未完成品（ミカン）も見てみましょう。</p>
+          <p>そして、「いいな」と思うものがあったら、ぜひ応援（水やり）してあげましょう。</p>
+          <p>「完成させることができるかどうか」を恐れず、何かを創りだそうとする全ての人を応援するWebサービス。</p>
+          <p>それが <strong>Mikanz -ミカンズ-</strong> です。</p>
+        </div>
+        <hr>
+        <div class="span6">
+          <h3>ミカンの木（よく使われているタグ）</h3>
           <div class="tagcloud">
             <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
               <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag.name }, class: 'label label-success mikanz-tag ' + css_class) %>
@@ -21,7 +32,7 @@
         </div>
         <hr>
         <div class="span6">
-          <h4>最近登録されたミカン</h4>
+          <h3>最近登録されたミカン</h3>
           <div class="list-group">
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'list-group-item') do %>
