@@ -7,6 +7,15 @@ module ApplicationHelper
     "/users/#{user.nickname}/mikanzs"
   end
 
+  def full_title(page_title)
+    base_title = 'みんなの未完成品が集まる場所・Mikanz -ミカンズ-'
+    if page_title.blank?
+      base_title
+    else
+      "#{page_title} | #{base_title}"
+    end
+  end
+
   def owner?(mikanz, user)
     return false unless mikanz.owner
     return false unless user
