@@ -44,12 +44,12 @@ class MikanzsController < ApplicationController
 
   def tag_search
     @tag_name = params[:tag_name]
-    @mikanzs = Mikanz.tagged_with(@tag_name)
+    @mikanzs = Mikanz.tagged_with(@tag_name).page(params[:page])
   end
 
   def users_mikanzs
     @user = User.where(nickname: params[:user_nickname]).take
-    @mikanzs = @user.created_mikanzs.order('created_at DESC')
+    @mikanzs = @user.created_mikanzs.order('created_at DESC').page(params[:page])
   end
 
   private

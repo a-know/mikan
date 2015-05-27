@@ -85,3 +85,7 @@ gem 'jquery-ui-rails'
 
 # for tag-auto-complete
 gem 'gon'
+
+# for pagination
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'

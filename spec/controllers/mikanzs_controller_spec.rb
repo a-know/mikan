@@ -231,7 +231,7 @@ RSpec.describe MikanzsController, :type => :controller do
       mikanz3
     end
     context 'when specified tag_name which exists' do
-      subject { get :tag_search, tag_name: 'aaa' }
+      subject { get :tag_search, tag_name: 'aaa', page: 1 }
 
       it 'set a find result object to @tag_name and @mikanzs' do
         subject
@@ -241,7 +241,7 @@ RSpec.describe MikanzsController, :type => :controller do
     end
 
     context 'when specified tag_name which does not exists' do
-      subject { get :tag_search, tag_name: 'eee' }
+      subject { get :tag_search, tag_name: 'eee', page: 1 }
 
       it 'set a tag_name to @tag_name and empty array to @mikanzs' do
         subject
@@ -269,7 +269,7 @@ RSpec.describe MikanzsController, :type => :controller do
     end
 
     context 'when specifed user_nickname which has some mikanzs' do
-      subject { get :users_mikanzs, user_nickname: user2.nickname }
+      subject { get :users_mikanzs, user_nickname: user2.nickname, page: 1 }
 
       it 'set a find result object to @user_nickname and @mikanzs' do
         subject
@@ -279,7 +279,7 @@ RSpec.describe MikanzsController, :type => :controller do
     end
 
     context 'when specifed user_nickname which has no mikanzs' do
-      subject { get :users_mikanzs, user_nickname: user3.nickname }
+      subject { get :users_mikanzs, user_nickname: user3.nickname, page: 1 }
 
       it 'set a find result object to @user_nickname and empty array to @mikanzs' do
         subject
