@@ -45,6 +45,9 @@ GEM
     arel (6.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -344,6 +347,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   annotate
+  bootstrap-kaminari-views
   byebug
   capybara
   carrierwave

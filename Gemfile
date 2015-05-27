@@ -88,3 +88,4 @@ gem 'gon'
 
 # for pagination
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
