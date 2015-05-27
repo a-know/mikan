@@ -269,7 +269,7 @@ RSpec.describe MikanzsController, :type => :controller do
     end
 
     context 'when specifed user_nickname which has some mikanzs' do
-      subject { get :users_mikanzs, user_nickname: user2.nickname }
+      subject { get :users_mikanzs, user_nickname: user2.nickname, page: 1 }
 
       it 'set a find result object to @user_nickname and @mikanzs' do
         subject
@@ -279,7 +279,7 @@ RSpec.describe MikanzsController, :type => :controller do
     end
 
     context 'when specifed user_nickname which has no mikanzs' do
-      subject { get :users_mikanzs, user_nickname: user3.nickname }
+      subject { get :users_mikanzs, user_nickname: user3.nickname, page: 1 }
 
       it 'set a find result object to @user_nickname and empty array to @mikanzs' do
         subject
