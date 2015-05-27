@@ -44,7 +44,7 @@ class MikanzsController < ApplicationController
 
   def tag_search
     @tag_name = params[:tag_name]
-    @mikanzs = Mikanz.tagged_with(@tag_name)
+    @mikanzs = Mikanz.tagged_with(@tag_name).page(params[:page])
   end
 
   def users_mikanzs
