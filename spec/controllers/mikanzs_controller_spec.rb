@@ -123,6 +123,7 @@ RSpec.describe MikanzsController, :type => :controller do
             start_year: 1982,
             start_month: 3,
             url: 'http://blog.a-know.me/',
+            completion: 'motivation',
           }
       end
 
@@ -144,6 +145,7 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).start_year).to eq(1982)
         expect(assigns(:mikanz).start_month).to eq(3)
         expect(assigns(:mikanz).url).to eq('http://blog.a-know.me/')
+        expect(assigns(:mikanz).completion).to eq('motivation')
       end
 
       it 'DB内のレコードが更新されていること' do
