@@ -12,7 +12,12 @@ class WateringsController < ApplicationController
     watering = current_user.waterings.build do |w|
       w.mikanz_id = params[:mikanz_id]
     end
-    if watering.save
+
+    success = false
+    ActiveRecord::Base.transaction do
+      success = watering.save
+    end
+    if success
       flash[:notice] = '水やり（応援）を完了しました'
       head 201
     else
