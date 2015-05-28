@@ -7,6 +7,8 @@
                     <span class="label label-warning">鋭意作成中</span>
                   <% when mikanz.nearing? %>
                     <span class="label label-warning">完成間近</span>
+                  <% when mikanz.complete? %>
+                    <span class="label label-danger">完成した！</span>
                   <% else %>
                     <span class="label label-warning">やる気待ち</span>
                   <% end %>

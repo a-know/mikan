@@ -1,5 +1,8 @@
 <% provide(:title, @mikanz.name) %>
 <div class="page-header">
+  <% if @mikanz.complete? %>
+    <%= image_tag '/images/dotsline_top.png', class: 'complete-line' %>
+  <% end %>
   <h1>
     <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
     <%= @mikanz.name %>
@@ -17,6 +20,9 @@
       <% end %>
     </div>
   </h5>
+  <% if @mikanz.complete? %>
+    <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
+  <% end %>
 </div>
 
 <% if @mikanz.mikanz_image %>

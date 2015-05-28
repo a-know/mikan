@@ -22,8 +22,8 @@ class Mikanz < ActiveRecord::Base
   acts_as_paranoid
   acts_as_ordered_taggable_on :tags
 
-  # 完成度： justidea（アイデアだけ）start（着手はした）wip（鋭意作成中）nearing（完成間近）motivation（やる気待ち）
-  enum completion: %i(justidea start wip nearing motivation)
+  # 完成度： justidea（アイデアだけ）start（着手はした）wip（鋭意作成中）nearing（完成間近）complete（完成した！）motivation（やる気待ち）
+  enum completion: %i(justidea start wip nearing complete motivation)
 
   has_many :waterings, dependent: :destroy
   belongs_to :owner, class_name: 'User'
