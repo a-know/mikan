@@ -67,3 +67,7 @@ body {
 .kaminari-pagination {
   text-align: center;
 }
+
+.complete-line {
+  max-width: 100%;
+}
