@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class ApplicationController < ActionController::Base
+  before_action :calc_notification_count
   # for error handling
   rescue_from ActiveRecord::RecordNotFound, with: :handle_404
 
@@ -29,5 +30,11 @@ class ApplicationController < ActionController::Base
   def authenticate
     return if logged_in?
     redirect_to root_path, alert: 'ログインしてください'
+  end
+
+  def calc_notification_count
+    if logged_in?
+      @notification_count = current_user.notifications.where(read: false).count
+    end
   end
 end
