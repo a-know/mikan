@@ -13,7 +13,7 @@ class WateringsController < ApplicationController
       w.mikanz_id = params[:mikanz_id]
     end
 
-    notification = Notification.new(user: owner, watering: watering, kind: 1, read: false)
+    notification = Notification.new(user: owner, watering: watering, kind: 0, read: false)
     success = false
 
     ActiveRecord::Base.transaction do
