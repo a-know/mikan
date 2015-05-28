@@ -25,9 +25,25 @@ class MikanzsController < ApplicationController
     @mikanz = current_user.created_mikanzs.find(params[:id])
 
     success = false
+    complete = mikanz_param['completion'] == 'complete'
+
+    # 完成度が「完成した！」に変更された場合、そのミカンを応援してくれた人全てに通知する
+    notifications = []
+    if complete
+      @mikanz.waterings.each do |w|
+        notifications <<
+          Notification.new(user: w.user, watering: w, kind: 1, read: false)
+      end
+    end
 
     ActiveRecord::Base.transaction do
       success = @mikanz.update(mikanz_param)
+      success = notifications.each(&:save)
+
+      notifications.each do |n|
+        break unless success
+        success = n.save
+      end
     end
 
     if success
