@@ -13,10 +13,13 @@ class WateringsController < ApplicationController
       w.mikanz_id = params[:mikanz_id]
     end
 
+    notification = Notification.new(user: owner, watering: watering, kind: 1, read: false)
     success = false
+
     ActiveRecord::Base.transaction do
-      success = watering.save
+      success = watering.save && notification.save
     end
+
     if success
       flash[:notice] = '水やり（応援）を完了しました'
       head 201
@@ -36,5 +39,10 @@ class WateringsController < ApplicationController
   def self_watering?
     mikanz = Mikanz.find(params[:mikanz_id])
     current_user.id == mikanz.owner.id
+  end
+
+  def owner
+    mikanz = Mikanz.find(params[:mikanz_id])
+    mikanz.owner
   end
 end

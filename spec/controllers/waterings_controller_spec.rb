@@ -41,6 +41,11 @@ RSpec.describe WateringsController, type: :controller do
         # あるミカンに紐付く watering がそのユーザーのものかを確認
         expect(Watering.find_by(mikanz_id: @mikanz.id).user_id).to eq(@user.id)
       end
+      it 'ミカン主への通知情報が正常に記録されること' do
+        expect do
+          subject
+        end.to change { User.find(@mikanz.owner.id).notifications.size }.by(1)
+      end
       it 'return 201 as status code' do
         subject
         expect(response.status).to eq(201)
