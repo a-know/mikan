@@ -23,7 +23,14 @@ class MikanzsController < ApplicationController
 
   def update
     @mikanz = current_user.created_mikanzs.find(params[:id])
-    if @mikanz.update(mikanz_param)
+
+    success = false
+
+    ActiveRecord::Base.transaction do
+      success = @mikanz.update(mikanz_param)
+    end
+
+    if success
       redirect_to @mikanz, notice: '登録しました'
     else
       render :edit
