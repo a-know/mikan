@@ -68,6 +68,7 @@ RSpec.describe WateringsController, type: :controller do
     before do
       @watering = create(:watering)
       @mikanz = @watering.mikanz
+      @notification = create(:notification, watering: @watering, user: @mikanz.owner)
       @user = @watering.user
       session[:user_id] = @user.id
     end
