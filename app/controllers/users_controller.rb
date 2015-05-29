@@ -15,4 +15,18 @@ class UsersController < ApplicationController
       render :retire
     end
   end
+
+  def notifications
+    user = User.find_by(nickname: params['user_nickname'])
+    notifications = user.notifications.order('created_at ASC')
+    # 未読だったものは既読にする
+    @notifications = []
+    notifications.each do |n|
+      @notifications << n
+      unless n.read
+        n.read = true
+        n.save
+      end
+    end
+  end
 end
