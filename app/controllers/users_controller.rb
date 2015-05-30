@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    notifications = current_user.notifications.order('created_at DESC')
+    notifications = current_user.notifications.order('created_at DESC').includes(:user, { watering: :mikanz })
     # 未読だったものは既読にする
     @notifications = []
     notifications.each do |n|
@@ -28,5 +28,6 @@ class UsersController < ApplicationController
         n.save
       end
     end
+    @notification_count = 0
   end
 end
