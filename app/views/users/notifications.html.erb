@@ -1,0 +1,22 @@
+<% provide(:title, "#{@user.nickname}さんへのお知らせ") %>
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h4><%= image_tag @user.image_url, width: 25, height: 25 %>
+            <%= @user.nickname %>さんのミカン一覧</h4>
+          <div class="list-group">
+            <% @mikanzs.each do |mikanz| %>
+              <%= link_to(mikanz, class: 'list-group-item') do %>
+                <h4 class="list-group-item-heading">
+                  <%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %>
+                  <%= mikanz.name %>
+                </h4>
+                <p class="list-group-item-text">
+                  タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
+                </p>
+                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %>）</p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="kaminari-pagination"><%= paginate @mikanzs, :theme => 'twitter-bootstrap-3' %></div>
+        </div>
+      </div>

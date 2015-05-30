@@ -17,8 +17,7 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    user = User.find_by(nickname: params['user_nickname'])
-    notifications = user.notifications.order('created_at DESC')
+    notifications = current_user.notifications.order('created_at DESC')
     # 未読だったものは既読にする
     @notifications = []
     notifications.each do |n|
