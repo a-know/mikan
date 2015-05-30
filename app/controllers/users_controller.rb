@@ -17,7 +17,11 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    notifications = current_user.notifications.order('created_at DESC').includes(:user, { watering: :mikanz })
+    notifications = current_user
+                      .notifications
+                      .limit(100)
+                      .order('created_at DESC')
+                      .includes(:user, { watering: :mikanz })
     # 未読だったものは既読にする
     @notifications = []
     notifications.each do |n|
@@ -29,5 +33,6 @@ class UsersController < ApplicationController
       end
     end
     @notification_count = 0
+    @notifications = Kaminari.paginate_array(@notifications).page(params[:page])
   end
 end
