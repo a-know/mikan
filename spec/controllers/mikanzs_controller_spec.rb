@@ -123,6 +123,7 @@ RSpec.describe MikanzsController, :type => :controller do
             start_year: 1982,
             start_month: 3,
             url: 'http://blog.a-know.me/',
+            completion: 'motivation',
           }
       end
 
@@ -144,11 +145,41 @@ RSpec.describe MikanzsController, :type => :controller do
         expect(assigns(:mikanz).start_year).to eq(1982)
         expect(assigns(:mikanz).start_month).to eq(3)
         expect(assigns(:mikanz).url).to eq('http://blog.a-know.me/')
+        expect(assigns(:mikanz).completion).to eq('motivation')
       end
 
       it 'DB内のレコードが更新されていること' do
         subject
         expect(Mikanz.find(@mikanz.id).name).to eq('変更後')
+      end
+    end
+
+    context '完成度が「完成した！」に更新されたとき' do
+      context '当該ミカンを応援した人がいる場合' do
+        before do
+          @watering = create(:watering)
+          @mikanz = @watering.mikanz
+          session[:user_id] = @mikanz.owner.id
+        end
+        subject do
+          put :update,
+            id: @mikanz.id,
+            mikanz: {
+              name: "変更後",
+              content: @mikanz.content,
+              tag_list: '鉄細工,DIY',
+              start_year: 1982,
+              start_month: 3,
+              url: 'http://blog.a-know.me/',
+              completion: 'complete',
+            }
+        end
+
+        it 'notification レコードが作成されていること' do
+          expect {
+            subject
+          }.to change { User.find(@watering.user.id).notifications.size }.by(1)
+        end
       end
     end
   end

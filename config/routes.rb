@@ -7,6 +7,7 @@
 #         retire_user GET    /user/retire(.:format)                      users#retire
 #                user DELETE /user(.:format)                             users#destroy
 #        user_mikanzs GET    /users/:user_nickname/mikanzs(.:format)     mikanzs#users_mikanzs
+#  user_notifications GET    /notifications(.:format)                    users#notifications
 #  tag_search_mikanzs GET    /mikanzs/tag_search(.:format)               mikanzs#tag_search
 #    mikanz_waterings POST   /mikanzs/:mikanz_id/waterings(.:format)     waterings#create
 # new_mikanz_watering GET    /mikanzs/:mikanz_id/waterings/new(.:format) waterings#new
@@ -35,6 +36,8 @@ Rails.application.routes.draw do
       get :mikanzs, action: :users_mikanzs
     end
   end
+
+  get 'notifications' => 'users#notifications', as: :user_notifications
 
   resources :mikanzs do
     collection do

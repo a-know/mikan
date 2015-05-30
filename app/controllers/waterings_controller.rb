@@ -12,7 +12,15 @@ class WateringsController < ApplicationController
     watering = current_user.waterings.build do |w|
       w.mikanz_id = params[:mikanz_id]
     end
-    if watering.save
+
+    notification = Notification.new(user: owner, watering: watering, kind: 0, read: false)
+    success = false
+
+    ActiveRecord::Base.transaction do
+      success = watering.save && notification.save
+    end
+
+    if success
       flash[:notice] = '水やり（応援）を完了しました'
       head 201
     else
@@ -22,6 +30,7 @@ class WateringsController < ApplicationController
 
   def destroy
     watering = current_user.waterings.find_by!(mikanz_id: params[:mikanz_id])
+    Notification.find_by(watering_id: watering.id).destroy
     watering.destroy!
     redirect_to mikanz_path(params[:mikanz_id]), notice: 'このミカンへの水やり（応援）を取り消しました'
   end
@@ -31,5 +40,10 @@ class WateringsController < ApplicationController
   def self_watering?
     mikanz = Mikanz.find(params[:mikanz_id])
     current_user.id == mikanz.owner.id
+  end
+
+  def owner
+    mikanz = Mikanz.find(params[:mikanz_id])
+    mikanz.owner
   end
 end
