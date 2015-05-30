@@ -31,11 +31,11 @@
               <li><%= link_to 'ミカンの利用をやめる（退会する）', retire_user_path %></li>
               <% if @notification_count == 0 %>
                 <li>
-                  <%= link_to @notification_count, retire_user_path, class: 'btn btn-primary' %>
+                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-primary' %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to @notification_count, retire_user_path, class: 'btn btn-danger' %>
+                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-danger' %>
                 </li>
               <% end %>
               <li><%= link_to 'ログアウト', logout_path %></li>
