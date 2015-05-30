@@ -18,11 +18,12 @@ class UsersController < ApplicationController
 
   def notifications
     user = User.find_by(nickname: params['user_nickname'])
-    notifications = user.notifications.order('created_at ASC')
+    notifications = user.notifications.order('created_at DESC')
     # 未読だったものは既読にする
     @notifications = []
     notifications.each do |n|
-      @notifications << n
+      # クライアントに返す情報は、未読のものは未読のままで返したい
+      @notifications << Notification.new(n.attributes)
       unless n.read
         n.read = true
         n.save
