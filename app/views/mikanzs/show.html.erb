@@ -44,7 +44,7 @@
         <% @waterings.each do |watering| %>
           <% if watering.user %>
             <li>
-              <%= link_to(url_for_twitter(watering.user)) do %>
+              <%= link_to(url_for_users_mikanzs(watering.user)) do %>
                 <%= image_tag watering.user.image_url, width: 20, height: 20 %>
                 <%= "@#{watering.user.nickname}" %>
               <% end %>
