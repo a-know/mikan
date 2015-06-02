@@ -30,7 +30,7 @@
             <% if logged_in? %>
               <% if @notification_count == 0 %>
                 <li>
-                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-primary' %>
+                  <%= link_to @notification_count, user_notifications_path, class: 'btn' %>
                 </li>
               <% else %>
                 <li>
