@@ -28,7 +28,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'ミカン登録', new_mikanz_path %></li>
             <% if logged_in? %>
-              <li><%= link_to '退会する', retire_user_path %></li>
+              <li><%= link_to '退会する', retire_user_path, class: 'btn btn-danger' %></li>
               <% if @notification_count == 0 %>
                 <li>
                   <%= link_to @notification_count, user_notifications_path, class: 'btn btn-primary' %>
