@@ -26,8 +26,8 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'ミカン登録', new_mikanz_path %></li>
             <% if logged_in? %>
+              <li><%= link_to 'ミカン登録', new_mikanz_path %></li>
               <% if @notification_count == 0 %>
                 <li>
                   <%= link_to user_notifications_path, class: 'btn' do %><span class="badge"><%= @notification_count %></span><% end %>
