@@ -28,6 +28,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
               <li><%= link_to 'ミカン登録', new_mikanz_path %></li>
+              <li><%= link_to 'Myミカン一覧', url_for_users_mikanzs(current_user) %></li>
               <% if @notification_count == 0 %>
                 <li>
                   <%= link_to user_notifications_path, class: 'btn' do %><span class="badge"><%= @notification_count %></span><% end %>
