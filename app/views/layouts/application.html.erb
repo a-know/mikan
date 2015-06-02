@@ -30,11 +30,11 @@
             <% if logged_in? %>
               <% if @notification_count == 0 %>
                 <li>
-                  <%= link_to @notification_count, user_notifications_path, class: 'btn' %>
+                  <%= link_to user_notifications_path, class: 'btn' do %><span class="badge"><%= @notification_count %></span><% end %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-warning' %>
+                  <%= link_to user_notifications_path, class: 'btn btn-warning' do %><span class="badge"><%= @notification_count %></span><% end %>
                 </li>
               <% end %>
               <li><%= link_to 'ログアウト', logout_path %></li>
