@@ -6,8 +6,8 @@
 #              logout GET    /logout(.:format)                           sessions#destroy
 #         retire_user GET    /user/retire(.:format)                      users#retire
 #                user DELETE /user(.:format)                             users#destroy
+#      waterings_user GET    /user/waterings(.:format)                   mikanzs#users_waterings
 #        user_mikanzs GET    /users/:user_nickname/mikanzs(.:format)     mikanzs#users_mikanzs
-#      user_waterings GET    /users/:user_nickname/waterings(.:format)   mikanzs#users_waterings
 #  user_notifications GET    /notifications(.:format)                    users#notifications
 #  tag_search_mikanzs GET    /mikanzs/tag_search(.:format)               mikanzs#tag_search
 #    mikanz_waterings POST   /mikanzs/:mikanz_id/waterings(.:format)     waterings#create
@@ -32,10 +32,15 @@ Rails.application.routes.draw do
     get 'retire'
   end
 
+  resource :user, only: [] do
+    scope controller: :mikanzs do
+      get :waterings, action: :users_waterings
+    end
+  end
+
   resources :users, param: :nickname, only: [] do
     scope controller: :mikanzs do
       get :mikanzs, action: :users_mikanzs
-      get :waterings, action: :users_waterings
     end
   end
 
