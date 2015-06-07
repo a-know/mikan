@@ -1,0 +1,23 @@
+<% provide(:title, "#{@current_user.nickname}さんの応援一覧") %>
+<div class="row-fluid marketing">
+  <div class="span6">
+    <h4><%= image_tag @current_user.image_url, width: 25, height: 25 %>
+      <%= @current_user.nickname %>さんの応援一覧</h4>
+    <div class="list-group">
+      <% @waterings.each do |w| %>
+        <%= link_to(w.mikanz, class: 'list-group-item') do %>
+          <h4 class="list-group-item-heading">
+            <%= render partial: 'mikanzs/display_completion', locals: { mikanz: w.mikanz } %>
+            <%= w.mikanz.name %>
+          </h4>
+          <p class="list-group-item-text">
+            タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: w.mikanz } %>
+          </p>
+          <p class="via">（since <%= w.mikanz.start_year %>/<%= w.mikanz.start_month %> by <%= "#{w.mikanz.owner.nickname}" %>
+            <%= image_tag w.mikanz.owner.image_url, width: 20, height: 20 %>
+            ）</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
