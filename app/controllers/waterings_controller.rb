@@ -36,7 +36,7 @@ class WateringsController < ApplicationController
   end
 
   def users_waterings
-    @waterings = current_user.waterings.includes(:mikanz).order('created_at DESC')
+    @waterings = current_user.waterings.includes(:mikanz).order('created_at DESC').page(params[:page])
   end
 
   private
