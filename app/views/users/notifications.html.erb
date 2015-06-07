@@ -23,6 +23,15 @@
               <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
             </h5>
           <% end %>
+        <% elsif n.kind == 'welcome' %>
+          <div class="list-group-item">
+            <h5 class="list-group-item-heading">
+              <p><% unless n.read %><span class="label label-success">NEW</span><% end %>
+                <%= image_tag @current_user.image_url, width: 25, height: 25 %>
+                <%= @current_user.nickname %> さん、<b>Mikanz - ミカンズ</b> にようこそ！</p>
+              <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+            </h5>
+          </div>
         <% end %>
       <% end %>
     </div>

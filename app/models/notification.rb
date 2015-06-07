@@ -12,8 +12,8 @@
 #
 
 class Notification < ActiveRecord::Base
-  # 完成度： watering（新たに応援された）complete（応援したミカンが完成した）
-  enum kind: %i(watering complete)
+  # 完成度： watering（新たに応援された）complete（応援したミカンが完成した）welcome（ミカンズに新規登録した）
+  enum kind: %i(watering complete welcome)
 
   belongs_to :user
   belongs_to :watering, dependent: :destroy
