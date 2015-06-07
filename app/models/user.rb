@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
     User.find_or_create_by(provider: provider, uid: uid) do |user|
       user.nickname = nickname
       user.image_url = image_url
+      Notification.create!(user: user, watering: nil, kind: 2, read: false)
     end
   end
 end

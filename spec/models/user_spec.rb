@@ -38,6 +38,7 @@ describe User, :type => :model do
         expect(@created_user.uid).to       eq('a-know')
         expect(@created_user.nickname).to  eq('いのうえ')
         expect(@created_user.image_url).to eq('a-know.jpg')
+        expect(@created_user.notifications.first.kind).to eq('welcome')
       end
     end
     context 'Authorized user is found in DB' do
