@@ -35,6 +35,10 @@ class WateringsController < ApplicationController
     redirect_to mikanz_path(params[:mikanz_id]), notice: 'このミカンへの水やり（応援）を取り消しました'
   end
 
+  def users_waterings
+    @waterings = current_user.waterings.includes(:mikanz).order('created_at DESC').page(params[:page])
+  end
+
   private
 
   def self_watering?

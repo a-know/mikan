@@ -26,19 +26,21 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'あなたのミカンを登録', new_mikanz_path %></li>
             <% if logged_in? %>
-              <li><%= link_to 'ミカンの利用をやめる（退会する）', retire_user_path %></li>
+              <li><%= link_to 'ミカン登録', new_mikanz_path %></li>
+              <li><%= link_to 'Myミカン一覧', url_for_users_mikanzs(current_user) %></li>
+              <li><%= link_to '応援一覧', url_for_users_watering %></li>
               <% if @notification_count == 0 %>
                 <li>
-                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-primary' %>
+                  <%= link_to user_notifications_path, class: 'btn' do %><span class="badge"><%= @notification_count %></span><% end %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to @notification_count, user_notifications_path, class: 'btn btn-danger' %>
+                  <%= link_to user_notifications_path, class: 'btn btn-warning' do %><span class="badge"><%= @notification_count %></span><% end %>
                 </li>
               <% end %>
               <li><%= link_to 'ログアウト', logout_path %></li>
+              <li><%= link_to '退会する', retire_user_path, class: 'btn btn-danger' %></li>
             <% else %>
               <li><%= link_to 'Twitter でログイン', '/auth/twitter' %></li>
             <% end %>

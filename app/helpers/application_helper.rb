@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module ApplicationHelper
   def url_for_twitter(user)
     "https://twitter.com/#{user.nickname}"
@@ -5,6 +7,10 @@ module ApplicationHelper
 
   def url_for_users_mikanzs(user)
     "/users/#{user.nickname}/mikanzs"
+  end
+
+  def url_for_users_watering
+    "/user/waterings"
   end
 
   def full_title(page_title)

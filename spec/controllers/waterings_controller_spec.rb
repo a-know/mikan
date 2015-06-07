@@ -86,4 +86,40 @@ RSpec.describe WateringsController, type: :controller do
       expect(response).to redirect_to(mikanz_path(@mikanz.id))
     end
   end
+
+  describe '#users_waterings' do
+    before do
+      @login_user = create(:user)
+      @user = create(:user)
+
+      @watering1 = create(:watering, user: @login_user)
+      @watering2 = create(:watering, user: @user)
+      @watering3 = create(:watering, user: @login_user)
+      @watering4 = create(:watering, user: @user)
+      @watering5 = create(:watering, user: @login_user)
+
+      @mikanz1 = @watering1.mikanz
+      @mikanz2 = @watering2.mikanz
+      @mikanz3 = @watering3.mikanz
+      @mikanz4 = @watering4.mikanz
+      @mikanz5 = @watering5.mikanz
+
+      @notification1 = create(:notification, watering: @watering1, user: @mikanz1.owner)
+      @notification2 = create(:notification, watering: @watering2, user: @mikanz2.owner)
+      @notification3 = create(:notification, watering: @watering3, user: @mikanz3.owner)
+      @notification4 = create(:notification, watering: @watering4, user: @mikanz4.owner)
+      @notification5 = create(:notification, watering: @watering5, user: @mikanz5.owner)
+
+      session[:user_id] = @login_user.id
+    end
+    subject { get :users_waterings }
+
+    it 'ログインユーザーの応援一覧が、対象ミカンの情報とともに取得できていること' do
+      subject
+      expect(assigns(:waterings)).to eq([@watering5, @watering3, @watering1])
+      expect(assigns(:waterings)[0].mikanz).to eq(@mikanz5)
+      expect(assigns(:waterings)[1].mikanz).to eq(@mikanz3)
+      expect(assigns(:waterings)[2].mikanz).to eq(@mikanz1)
+    end
+  end
 end
