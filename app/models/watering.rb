@@ -12,4 +12,5 @@
 class Watering < ActiveRecord::Base
   belongs_to :user
   belongs_to :mikanz
+  has_one :notification, dependent: :nullify
 end
