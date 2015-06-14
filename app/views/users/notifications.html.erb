@@ -9,19 +9,30 @@
           <%= link_to(n.watering.mikanz, class: 'list-group-item') do %>
             <h5 class="list-group-item-heading">
               <p><% unless n.read %><span class="label label-success">NEW</span><% end %>
-                あなたのミカン「<%= n.watering.mikanz.name %>」が <%= image_tag n.watering.user.image_url, width: 20, height: 20 %>
-              <%= n.watering.user.nickname %> さんに応援されました！</p>
+                あなたのミカン「<%= n.watering.mikanz.name %>」が <% if n.watering.user.nil? %><%= image_tag "/images/nouser.png", width: 20, height: 20 %><% else %><%= image_tag n.watering.user.image_url, width: 20, height: 20 %><% end %>
+              <% if n.watering.user.nil? %>退会済みユーザー<% else %><%= n.watering.user.nickname %><% end %> さんに応援されました！</p>
               <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
             </h5>
           <% end %>
         <% elsif n.kind == 'complete' %>
-          <%= link_to(n.watering.mikanz, class: 'list-group-item') do %>
-            <h5 class="list-group-item-heading">
-              <p><% unless n.read %><span class="label label-success">NEW</span><% end %>
-                あなたが応援した <%= image_tag n.watering.mikanz.owner.image_url, width: 20, height: 20 %>
-                <%= n.watering.mikanz.owner.nickname %> さんのミカン「<%= n.watering.mikanz.name %>」が完成したようです！</p>
-              <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
-            </h5>
+          <% if n.watering.nil? %>
+            <div class="list-group-item">
+              <h5 class="list-group-item-heading">
+                <p><% unless n.read %><span class="label label-success">NEW</span><% end %>
+                  あなたが応援した <%= image_tag "/images/nouser.png", width: 20, height: 20 %>
+                  退会済みユーザー さんのミカンが完成していたようです！</p>
+                <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+              </h5>
+            </div>
+          <% else %>
+            <%= link_to(n.watering.mikanz, class: 'list-group-item') do %>
+              <h5 class="list-group-item-heading">
+                <p><% unless n.read %><span class="label label-success">NEW</span><% end %>
+                  あなたが応援した <%= image_tag n.watering.mikanz.owner.image_url, width: 20, height: 20 %>
+                  <%= n.watering.mikanz.owner.nickname %> さんのミカン「<%= n.watering.mikanz.name %>」が完成したようです！</p>
+                <p class="via"><%= n.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+              </h5>
+            <% end %>
           <% end %>
         <% elsif n.kind == 'welcome' %>
           <div class="list-group-item">
