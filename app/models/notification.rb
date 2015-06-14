@@ -16,5 +16,5 @@ class Notification < ActiveRecord::Base
   enum kind: %i(watering complete welcome)
 
   belongs_to :user
-  belongs_to :watering, dependent: :destroy
+  belongs_to :watering
 end
