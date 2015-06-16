@@ -89,3 +89,6 @@ gem 'gon'
 # for pagination
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+
+# for flat-ui
+gem 'flatui-rails'
