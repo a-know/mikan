@@ -77,3 +77,11 @@ body {
 .navbar-inverse {
   background-color: #27AE60;
 }
+
+.navbar-header > a:hover {
+  color: #F1C40F !important;
+}
+
+.navbar-nav > li > a:hover {
+  color: #F1C40F !important;
+}
