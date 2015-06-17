@@ -32,16 +32,17 @@ body {
 .via {
   text-align: right;
   color: #999;
+  font-size: 12px;
 }
 
 .ui-helper-hidden-accessible {
   display: none;
 }
 
-.css1 { font-size: 1.0em; line-height: 4;}
-.css2 { font-size: 1.2em; line-height: 4;}
-.css3 { font-size: 1.4em; line-height: 4;}
-.css4 { font-size: 1.6em; line-height: 4;}
+.css1 { font-size: 0.6em; line-height: 4;}
+.css2 { font-size: 0.8em; line-height: 4;}
+.css3 { font-size: 1.0em; line-height: 4;}
+.css4 { font-size: 1.2em; line-height: 4;}
 
 .tagcloud {
   text-align: center;
@@ -84,4 +85,8 @@ body {
 
 .navbar-nav > li > a:hover {
   color: #F1C40F !important;
+}
+
+.description {
+  font-size: 16px;
 }
