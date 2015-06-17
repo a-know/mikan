@@ -50,6 +50,8 @@ body {
 .topdiv {
   background-image: url(/images/top.jpg);
   background-size:cover;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .topdiv-child {
