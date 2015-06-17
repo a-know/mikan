@@ -73,3 +73,7 @@ body {
 .complete-line {
   max-width: 100%;
 }
+
+.navbar-inverse {
+  background-color: #27AE60;
+}
