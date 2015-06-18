@@ -10,17 +10,47 @@
       <hr>
 
       <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>Mikanz -ミカンズ- って、なに？</h4>
-          <p class="description"><strong>Mikanz -ミカンズ-</strong> は、「みんなの未完成品（ミカン）が集まる場所」。</p>
-          <p class="description">あなたの未完成品（ミカン）を登録して、そのまま他人に見てもらいましょう。</p>
-          <p class="description">あまくてすっぱい、アイデアだけの状態でもかまいません。</p>
-          <p class="description">あなたの未完成品（ミカン）の登録ができたら、今度は、ほかの人の未完成品（ミカン）も見てみましょう。</p>
-          <p class="description">そして、「いいな」と思うものがあったら、ぜひ応援（水やり）してあげましょう。</p>
-          <p class="description">「完成させることができるかどうか」を恐れず、何かを創りだそうとする全ての人を応援するWebサービス。</p>
-          <p class="description">それが <strong>Mikanz -ミカンズ-</strong> です。</p>
-          <h6 class="via">inspierd by スピッツ - ミカンズのテーマ</h6>
-        </div>
+        <h4>Mikanz -ミカンズ- って、なに？</h4>
+        <div class="row demo-tiles">
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/scissors.png', class: 'tile-image' %>
+              <%= image_tag '/images/gateway.png', class: 'tile-image' %>
+              <h3 class="tile-title">つくりかけのものを登録</h3>
+              <p></p>
+              <p>Mikanz -ミカンズ- は、<br>
+              「みんなの未完成品（ミカン）が集まる場所」。<br>
+              あまくてすっぱい、<br>アイデアだけの状態でもかまいません。</p>
+            </div>
+          </div>
+
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/check_for_virus.png', class: 'tile-image' %>
+              <%= image_tag '/images/star.png', class: 'tile-image' %>
+              <h3 class="tile-title">見てもらい、応援してもらう</h3>
+              <p></p>
+              <p>あなたのミカンの登録ができたら、<br>
+                ほかの人のミカンも見てみましょう。<br>
+                そして、「いいな」と思うものがあったら、<br>
+                ぜひ応援してあげましょう。</p>
+            </div>
+          </div>
+
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/animation.png', class: 'tile-image' %>
+              <%= image_tag '/images/smiley_winking.png', class: 'tile-image' %>
+              <h3 class="tile-title">また頑張れる、完成させられる！</h3>
+              <p></p>
+              <p>「完成させることができるかどうか」を恐れず、<br>
+                何かを創りだそうとする<br>
+                全ての人を応援するWebサービス。<br>
+                それが、 <strong>Mikanz -ミカンズ- </strong> です。</p>
+            </div>
+          </div>
+        </div> <!-- /tiles -->
+
         <hr>
         <div class="span6">
           <h4>ミカンの木（よく使われているタグ）</h4>

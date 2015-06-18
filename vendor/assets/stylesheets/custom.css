@@ -116,3 +116,11 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
   font-size: 13px;
   text-align: center;
 }
+
+.centered {
+  text-align: center;
+}
+
+.tile {
+  background-color: #ECF0F1 !important;
+}
