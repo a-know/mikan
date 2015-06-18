@@ -103,3 +103,11 @@ body {
 .has-success .form-control, .has-success .select2-search input[type="text"] {
   color: #000 !important;
 }
+
+ul.tagit li.tagit-choice {
+  background-color: #2ECC71;
+}
+
+ul.tagit li.tagit-choice .tagit-label:not(a) {
+  color: #FFF;
+}
