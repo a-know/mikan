@@ -32,11 +32,11 @@
     <p><%= f.label :tag_list, class: 'input-label' %></p>
     <%= text_field_tag 'mikanz[tag_list]', @mikanz.tag_list.join(','), id: 'mikanz_tag' %>
   </div>
-  <div class="form-group">
+  <div class="form-group has-success">
     <p><%= f.label :content, class: 'input-label' %></p>
     <%= f.text_area :content, class: 'form-control', row: 10 %>
   </div>
-  <div class="form-group">
+  <div class="form-group has-success">
     <p><%= f.label :url, class: 'input-label' %></p>
     <%= f.text_field :url, class: 'form-control' %>
   </div>
@@ -49,5 +49,5 @@
     <%= f.file_field :mikanz_image %>
     <%= f.hidden_field :mikanz_image_cache %>
   </div>
-  <%= f.submit '登録', class: 'btn btn-default', data: { disable_with: '登録中...' } %>
+  <%= f.submit '登録', class: 'btn btn-hg btn-warning', data: { disable_with: '登録中...' } %>
 <% end %>
