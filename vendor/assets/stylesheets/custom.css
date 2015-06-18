@@ -111,3 +111,8 @@ ul.tagit li.tagit-choice {
 ul.tagit li.tagit-choice .tagit-label:not(a) {
   color: #FFF;
 }
+
+.footer {
+  font-size: 13px;
+  text-align: center;
+}
