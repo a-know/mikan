@@ -99,3 +99,7 @@ body {
   font-size: 18px;
   font-weight: bold;
 }
+
+.has-success .form-control, .has-success .select2-search input[type="text"] {
+  color: #000 !important;
+}
