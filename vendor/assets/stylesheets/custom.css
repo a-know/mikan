@@ -192,3 +192,23 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
   border: 6px solid #fff;
   margin: 20px;
 }
+
+i .fa {
+  display: inline-block;
+}
+
+.fav-icon-h {
+  padding: 0px 0px 0px 10px;
+}
+
+.fav-user-icon-h {
+  margin: 0px 0px 0px 10px;
+}
+
+.mikanz-detail-description {
+  color: #000;
+}
+
+.tweet {
+  padding: 0px 15px 0px 0px;
+}
