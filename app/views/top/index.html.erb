@@ -53,6 +53,26 @@
         </div> <!-- /tiles -->
 
         <hr>
+
+        <div class="span6">
+          <h4>最近登録されたミカン</h4>
+          <div class="swatches-col">
+            <% @mikanzs.each do |mikanz| %>
+              <%= link_to(mikanz, class: 'pallete-item') do %>
+                <dl class="mikanz-list-palette palette-nephritis mikanz-list-title">
+                  <dt><%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %> <%= mikanz.name.size > 5 ? mikanz.name[0..4] + '...' : mikanz.name %></dt>
+                </dl>
+                <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
+                  <dt><span class="cut"><%= image_tag mikanz.mikanz_image, class: 'cut_image' %></span></dt>
+                  <dd><%= image_tag mikanz.owner.image_url, width: 20, height: 20 %> <%= "#{mikanz.owner.nickname}" %></dd>
+                </dl>
+              <% end %>
+            <% end %>
+          </div>
+        </div> <!-- /swatches row -->
+
+        <hr>
+
         <div class="span6">
           <h4>ミカンの木（よく使われているタグ）</h4>
           <div class="tag-parent">
@@ -63,72 +83,6 @@
                 <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag.name }, class: 'label label-warning mikanz-tag ' + css_class) %>
               <% end %>
             </div>
-          </div>
-        </div>
-        <hr>
-
-
-      <div class="span6">
-        <h4>最近登録されたミカン</h4>
-        <div class="swatches-col">
-          <div class="pallete-item">
-            <dl class="palette palette-nephritis mikanz-list-title">
-              <dt>#2ecc71</dt>
-            </dl>
-            <dl class="palette palette-sun-flower mikanz-list-content">
-              <dt><span class="cut"><img src="http://art27.photozou.jp/pub/994/306994/photo/34967559.jpg" alt="sample" class="cut_image" /></span></dt>
-              <dd></dd>
-            </dl>
-          </div>
-          <div class="pallete-item">
-            <dl class="palette palette-nephritis mikanz-list-title">
-              <dt>#2ecc71</dt>
-            </dl>
-            <dl class="palette palette-sun-flower mikanz-list-content">
-              <dt><span class="cut"><img src="http://art27.photozou.jp/pub/994/306994/photo/34967559.jpg" alt="sample" class="cut_image" /></span></dt>
-              <dd></dd>
-            </dl>
-          </div>
-          <div class="pallete-item">
-            <dl class="palette palette-nephritis mikanz-list-title">
-              <dt>#2ecc71</dt>
-            </dl>
-            <dl class="palette palette-sun-flower mikanz-list-content">
-              <dt><span class="cut"><img src="http://art27.photozou.jp/pub/994/306994/photo/34967559.jpg" alt="sample" class="cut_image" /></span></dt>
-              <dd></dd>
-            </dl>
-          </div>
-          <div class="pallete-item">
-            <dl class="palette palette-nephritis mikanz-list-title">
-              <dt>#2ecc71</dt>
-            </dl>
-            <dl class="palette palette-sun-flower mikanz-list-content">
-              <dt><span class="cut"><img src="http://art27.photozou.jp/pub/994/306994/photo/34967559.jpg" alt="sample" class="cut_image" /></span></dt>
-              <dd></dd>
-            </dl>
-          </div>
-        </div>
-      </div> <!-- /swatches row -->
-        <hr>
-
-
-        <div class="span6">
-          <h4>最近登録されたミカン</h4>
-          <div class="list-group">
-            <% @mikanzs.each do |mikanz| %>
-              <%= link_to(mikanz, class: 'list-group-item') do %>
-                <h6 class="list-group-item-heading">
-                  <%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %>
-                  <%= mikanz.name %>
-                </h6>
-                <p class="list-group-item-text">
-                  タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
-                </p>
-                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %> by <%= "#{mikanz.owner.nickname}" %>
-                  <%= image_tag mikanz.owner.image_url, width: 20, height: 20 %>
-                  ）</p>
-              <% end %>
-            <% end %>
           </div>
         </div>
       </div>
