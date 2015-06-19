@@ -146,4 +146,22 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 
 .mikanz-list-content {
   border-radius: 10px;
+  text-align: center;
+}
+
+.cut {
+  position:relative;
+  overflow: hidden; /*不要部分ｷﾘﾄﾘ*/
+  height: 140px; /*正方形にしたいサイズ*/
+  width: 140px; /*正方形にしたいサイズ*/
+  display: inline-block; /*SPANなのでブロック要素に*/
+  border: 6px solid #fff;
+  border-radius: 10px;
+}
+.cut_image /*縦・横の画像でも一応見れるように微妙に調整されています*/ {
+  display: block;
+  height: 160px;
+  position: absolute;
+  left: -65px;
+  top: -25px;
 }
