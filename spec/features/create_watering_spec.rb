@@ -17,7 +17,7 @@ describe 'ユーザが水やり（応援）をする', js: true do
       expect(page).to have_content('水やり（応援）を完了しました')
     end
 
-    it '水やりしたユーザ名が表示されていること' do
+    xit '水やりしたユーザ名が表示されていること' do
       expect(page).to have_content('@a-know')
     end
 
