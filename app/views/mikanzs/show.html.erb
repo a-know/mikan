@@ -25,21 +25,15 @@
   <% end %>
 </div>
 
-<% if @mikanz.mikanz_image %>
-  <div class="panel panel-default">
-    <div class="thumbnail mikanzimg">
+<div>
+    <div class="mikanz-detail-palette palette-sun-flower mikanz-detail-content">
       <% if @mikanz.url.blank? %>
-        <%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %>
+        <%= image_tag @mikanz.mikanz_image || '/images/noimage.jpg' , class: 'mikanz-detail-image' %>
       <% else %>
         <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %></a>
       <% end %>
     </div>
-    <!-- <div class="panel panel-default">
-      <div class="panel-heading">
-        水やり（応援）してくれた人
-      </div>
-    </div> -->
-    <div class="panel-body">
+    <div class="mikanz-list-palette palette-nephritis mikanz-list-title">
       <ul class="list-unstyled">
         <% @waterings.each do |watering| %>
           <% if watering.user %>
@@ -56,8 +50,7 @@
         <% end %>
       </ul>
     </div>
-  </div>
-<% end %>
+</div>
 
 <div class="panel panel-default">
   <div class="panel-heading">

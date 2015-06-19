@@ -177,3 +177,18 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
   left: -15px;
   top: -15px;
 }
+
+.mikanz-detail-title {
+  text-align: left;
+  border-radius: 10px;
+}
+
+.mikanz-detail-content {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.mikanz-detail-image {
+  border: 6px solid #fff;
+  margin: 20px;
+}
