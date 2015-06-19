@@ -124,3 +124,21 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 .tile {
   background-color: #FCF5D8 !important;
 }
+
+.pallete-item {
+  width: 200px !important;
+  float: none;
+  display: inline-block;
+}
+
+.palette {
+  padding: 5px !important;
+}
+
+.swatches-col {
+  text-align: center;
+}
+
+.mikanz-list-title {
+  text-align: left;
+}
