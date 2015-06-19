@@ -93,3 +93,6 @@ gem 'bootstrap-kaminari-views'
 # for flat-ui
 gem 'flatui-rails'
 gem 'select2-rails'
+
+# for font-awesome
+gem 'font-awesome-rails'
