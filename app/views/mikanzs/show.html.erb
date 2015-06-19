@@ -82,9 +82,7 @@
     <%= link_to 'このミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
   <% end %>
   <% unless owner?(@mikanz, current_user) %>
-    <% if @watering %>
-      <%= link_to '水やり（応援）を取り消す', mikanz_watering_path(@mikanz, @watering), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
-    <% elsif logged_in? %>
+    <% if logged_in? %>
       <div id="createWatering">
         <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
           <%= f.button '水やり（応援）する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>

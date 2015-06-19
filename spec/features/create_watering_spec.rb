@@ -21,7 +21,7 @@ describe 'ユーザが水やり（応援）をする', js: true do
       expect(page).to have_content('@a-know')
     end
 
-    context 'その後、その応援をキャンセルしたとき' do
+    xcontext 'その後、その応援をキャンセルしたとき' do
       before do
         click_on '水やり（応援）を取り消す'
       end
