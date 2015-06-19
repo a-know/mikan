@@ -44,8 +44,16 @@ body {
 .css3 { font-size: 1.0em; line-height: 4;}
 .css4 { font-size: 1.2em; line-height: 4;}
 
+.tag-parent {
+  text-align: center;
+}
+
 .tagcloud {
   text-align: center;
+  background-image: url(/images/tree.png);
+  width: 600px;
+  height: 600px;
+  display: inline-block;
 }
 
 .topdiv {
