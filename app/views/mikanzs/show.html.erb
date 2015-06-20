@@ -64,7 +64,7 @@
         <%= link_to(tag, { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag }, class: 'label label-success mikanz-tag') %>
       <% end %>
     <% end %>
-    <p class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</p>
+    <div class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</div>
   </div>
 </div>
 <div>
