@@ -8,11 +8,11 @@
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'pallete-item') do %>
                 <dl class="mikanz-list-palette palette-nephritis mikanz-list-title">
-                  <dt><%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %> <%= mikanz.name.size > 5 ? mikanz.name[0..4] + '...' : mikanz.name %></dt>
+                  <dt><%= fa_icon "heart" %> x <%= mikanz.waterings.size %></dt>
                 </dl>
                 <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
                   <dt><span class="cut"><%= image_tag mikanz.mikanz_image.url || '/images/noimage.jpg', class: 'cut_image' %></span></dt>
-                  <dd><%= image_tag mikanz.owner.image_url, width: 20, height: 20 %> <%= "#{mikanz.owner.nickname}" %></dd>
+                  <dd><b><%= mikanz.name.size > 5 ? mikanz.name[0..4] + '...' : mikanz.name %></b></dd>
                 </dl>
               <% end %>
             <% end %>
