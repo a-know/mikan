@@ -1,28 +1,30 @@
 <% provide(:title, @mikanz.name) %>
-<div class="page-header">
-  <% if @mikanz.complete? %>
-    <%= image_tag '/images/dotsline_top.png', class: 'complete-line' %>
-  <% end %>
-  <h1>
-    <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
-    <%= @mikanz.name %>
-  </h1>
-  <h5>
-    <div class="via">
-      <% if @mikanz.owner %>
-        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
-          <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
+<div class="mikanz-detail-header">
+  <div class="page-header">
+    <% if @mikanz.complete? %>
+      <%= image_tag '/images/dotsline_top.png', class: 'complete-line' %>
+    <% end %>
+    <h1>
+      <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
+      <%= @mikanz.name %>
+    </h1>
+    <h5>
+      <div class="via">
+        <% if @mikanz.owner %>
+          <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
+            <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
+          <% end %>
+          <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>produced by <%= "#{@mikanz.owner.nickname}" %><% end %>
+          （<%= link_to(url_for_twitter(@mikanz.owner)) do %><%= "@#{@mikanz.owner.nickname}" %><% end %>）
+        <% else %>
+          退会済みユーザ
         <% end %>
-        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>produced by <%= "#{@mikanz.owner.nickname}" %><% end %>
-        （<%= link_to(url_for_twitter(@mikanz.owner)) do %><%= "@#{@mikanz.owner.nickname}" %><% end %>）
-      <% else %>
-        退会済みユーザ
-      <% end %>
-    </div>
-  </h5>
-  <% if @mikanz.complete? %>
-    <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
-  <% end %>
+      </div>
+    </h5>
+    <% if @mikanz.complete? %>
+      <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
+    <% end %>
+  </div>
 </div>
 
 <div>

@@ -213,3 +213,9 @@ i .fa {
 .tweet {
   padding: 0px 15px 0px 0px;
 }
+
+.mikanz-detail-header {
+  background-image: url(/images/mikan_flat.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
