@@ -219,3 +219,7 @@ i .fa {
   background-position: top right;
   background-repeat: no-repeat;
 }
+
+.producer {
+  font-size: 16px;
+}

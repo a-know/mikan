@@ -8,8 +8,7 @@
       <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
       <%= @mikanz.name %>
     </h1>
-    <h5>
-      <div class="via">
+      <div class="via producer">
         <% if @mikanz.owner %>
           <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
             <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
@@ -20,7 +19,6 @@
           退会済みユーザ
         <% end %>
       </div>
-    </h5>
     <% if @mikanz.complete? %>
       <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
     <% end %>
