@@ -33,6 +33,6 @@ class UsersController < ApplicationController
       end
     end
     @notification_count = 0
-    @notifications = Kaminari.paginate_array(@notifications).page(params[:page])
+    @notifications = Kaminari.paginate_array(@notifications).page(params[:page]).per(10)
   end
 end
