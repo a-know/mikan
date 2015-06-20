@@ -2,19 +2,17 @@
       <div class="row-fluid marketing">
         <div class="span6">
           <h4>タグ <span class="label label-success mikanz-tag"><%= @tag_name %></span> を持つミカン一覧</h4>
-          <div class="list-group">
+          <hr>
+          <div class="swatches-col">
             <% @mikanzs.each do |mikanz| %>
-              <%= link_to(mikanz, class: 'list-group-item') do %>
-                <h4 class="list-group-item-heading">
-                  <%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %>
-                  <%= mikanz.name %>
-                </h4>
-                <p class="list-group-item-text">
-                  タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
-                </p>
-                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %> by <%= "#{mikanz.owner.nickname}" %>
-                  <%= image_tag mikanz.owner.image_url, width: 20, height: 20 %>
-                  ）</p>
+              <%= link_to(mikanz, class: 'pallete-item') do %>
+                <dl class="mikanz-list-palette palette-nephritis mikanz-list-title">
+                  <dt><%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %> <%= mikanz.name.size > 5 ? mikanz.name[0..4] + '...' : mikanz.name %></dt>
+                </dl>
+                <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
+                  <dt><span class="cut"><%= image_tag mikanz.mikanz_image.url || '/images/noimage.jpg', class: 'cut_image' %></span></dt>
+                  <dd><%= image_tag mikanz.owner.image_url, width: 20, height: 20 %> <%= "#{mikanz.owner.nickname}" %></dd>
+                </dl>
               <% end %>
             <% end %>
           </div>

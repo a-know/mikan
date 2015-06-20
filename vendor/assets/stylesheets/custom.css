@@ -235,3 +235,23 @@ i .fa {
 .producer {
   font-size: 16px;
 }
+
+.page {
+  background-color: #ECF0F1;
+}
+
+.next_page {
+  background-color: #ECF0F1;
+}
+
+.last {
+  background-color: #ECF0F1;
+}
+
+.prev {
+  background-color: #ECF0F1;
+}
+
+.first {
+  background-color: #ECF0F1;
+}
