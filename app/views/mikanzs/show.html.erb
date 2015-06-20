@@ -69,8 +69,12 @@
 </div>
 <div>
   <% if @mikanz.created_by?(current_user) %>
-    <%= link_to '登録内容を編集する', edit_mikanz_path(@mikanz), class: 'btn btn-info btn-lg btn-block' %>
-    <%= link_to 'このミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
+    <div class="col-xs-9">
+      <%= link_to '登録内容を編集する', edit_mikanz_path(@mikanz), class: 'btn btn-info btn-lg btn-block' %>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to 'ミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
+    </div>
   <% end %>
   <% unless owner?(@mikanz, current_user) %>
     <% if logged_in? %>
@@ -84,3 +88,6 @@
     <% end %>
   <% end %>
 </div>
+<br>
+<br>
+<br>
