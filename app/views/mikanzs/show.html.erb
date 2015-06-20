@@ -1,5 +1,9 @@
 <% provide(:title, @mikanz.name) %>
-<div class="mikanz-detail-header">
+<% if @mikanz.complete? %>
+  <div class="mikanz-detail-header-complete">
+<% else %>
+  <div class="mikanz-detail-header">
+<% end %>
   <div class="page-header">
     <h1>
       <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
