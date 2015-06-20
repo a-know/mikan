@@ -3,6 +3,9 @@
         <div class="span6">
           <h4>タグ <span class="label label-success mikanz-tag"><%= @tag_name %></span> を持つミカン一覧</h4>
           <hr>
+          <% if @mikanzs.size == 0 %>
+          まだミカンが登録されていません。
+          <% end %>
           <div class="swatches-col">
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'pallete-item') do %>

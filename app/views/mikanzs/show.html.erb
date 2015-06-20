@@ -36,11 +36,9 @@
         <h4 class="fav-icon-h"><%= fa_icon "heart" %> x <%= @waterings.size %></h4>
         <% @waterings.each do |watering| %>
           <% if watering.user %>
-            <li>
               <%= link_to(url_for_users_mikanzs(watering.user)) do %>
                 <%= image_tag watering.user.image_url, width: 30, height: 30, class: 'fav-user-icon-h' %>
               <% end %>
-            </li>
           <% else %>
             <%= image_tag "/images/nouser.png", width: 30, height: 30, class: 'fav-user-icon-h' %>
           <% end %>
@@ -76,11 +74,19 @@
   <% end %>
   <% unless owner?(@mikanz, current_user) %>
     <% if logged_in? %>
-      <div id="createWatering">
-        <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
-          <%= f.button '応援する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
-        <% end %>
-      </div>
+      <% if @watering %>
+        <div id="createWatering">
+          <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
+            <%= f.button '応援済み', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' }, disabled: true %>
+          <% end %>
+        </div>
+      <% else %>
+        <div id="createWatering">
+          <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
+            <%= f.button '応援する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
+          <% end %>
+        </div>
+      <% end %>
     <% else %>
       <%= link_to '応援する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>

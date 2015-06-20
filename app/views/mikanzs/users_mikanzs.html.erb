@@ -4,6 +4,9 @@
           <h4><%= image_tag @user.image_url, width: 25, height: 25 %>
             <%= @user.nickname %>さんのミカン一覧</h4>
           <hr>
+          <% if @mikanzs.size == 0 %>
+          まだミカンが登録されていません。
+          <% end %>
           <div class="swatches-col">
             <% @mikanzs.each do |mikanz| %>
               <%= link_to(mikanz, class: 'pallete-item') do %>

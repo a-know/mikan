@@ -151,8 +151,13 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
   text-align: center;
 }
 
-.mikanz-list-title {
+.top-mikanz-list-title {
   text-align: right;
+  border-radius: 10px;
+}
+
+.mikanz-list-title {
+  text-align: left;
   border-radius: 10px;
 }
 
@@ -207,7 +212,7 @@ i .fa {
 }
 
 .fav-user-icon-h {
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 .mikanz-detail-description {
