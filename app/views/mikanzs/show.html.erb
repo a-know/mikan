@@ -78,11 +78,11 @@
     <% if logged_in? %>
       <div id="createWatering">
         <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
-          <%= f.button '水やり（応援）する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
+          <%= f.button '応援する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
         <% end %>
       </div>
     <% else %>
-      <%= link_to '水やり（応援）する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
+      <%= link_to '応援する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
   <% end %>
 </div>

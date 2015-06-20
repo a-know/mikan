@@ -2,35 +2,35 @@
 
 require 'rails_helper'
 
-describe 'ユーザが水やり（応援）をする', js: true do
+describe 'ユーザが応援をする', js: true do
   let!(:mikanz) { create :mikanz }
 
-  context 'ログインユーザが、ミカン詳細ページで"水やり（応援）する"をクリックしたとき' do
+  context 'ログインユーザが、ミカン詳細ページで"応援する"をクリックしたとき' do
     before do
       visit root_path
       click_link 'Twitter でログイン'
       visit mikanz_path(mikanz)
-      click_on '水やり（応援）する'
+      click_on '応援する'
     end
 
-    it '"水やり（応援）を完了しました"と表示されていること' do
-      expect(page).to have_content('水やり（応援）を完了しました')
+    it '"応援を完了しました"と表示されていること' do
+      expect(page).to have_content('応援を完了しました')
     end
 
-    xit '水やりしたユーザ名が表示されていること' do
+    xit '応援したユーザー名が表示されていること' do
       expect(page).to have_content('@a-know')
     end
 
     xcontext 'その後、その応援をキャンセルしたとき' do
       before do
-        click_on '水やり（応援）を取り消す'
+        click_on '応援を取り消す'
       end
 
-      it '"このミカンへの水やり（応援）を取り消しました"と表示されていること' do
-        expect(page).to have_content('このミカンへの水やり（応援）を取り消しました')
+      it '"このミカンへの応援を取り消しました"と表示されていること' do
+        expect(page).to have_content('このミカンへの応援を取り消しました')
       end
 
-      it '水やりしたユーザ名が表示されていないこと' do
+      it '応援したユーザー名が表示されていないこと' do
         expect(page).to_not have_content('@a-know')
       end
     end
