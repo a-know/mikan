@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>退会の確認</h1>
+  <h3>退会の確認</h3>
 </div>
 <% if current_user.errors.any? %>
   <div class="alert alert-danager">
@@ -13,5 +13,5 @@
 
 <p>退会した場合、ユーザーに関するデータ（ミカン情報・画像）がすべて削除されます。</p>
 <p>本当に退会してよろしいですか？</p>
-<hr>
+<br>
 <%= link_to 'Mikanz -ミカンズ- の利用をやめる（退会する）', user_path, method: :delete, class: 'btn btn-danger' %>
