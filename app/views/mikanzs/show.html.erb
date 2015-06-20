@@ -1,9 +1,6 @@
 <% provide(:title, @mikanz.name) %>
 <div class="mikanz-detail-header">
   <div class="page-header">
-    <% if @mikanz.complete? %>
-      <%= image_tag '/images/dotsline_top.png', class: 'complete-line' %>
-    <% end %>
     <h1>
       <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
       <%= @mikanz.name %>
@@ -19,9 +16,6 @@
           退会済みユーザ
         <% end %>
       </div>
-    <% if @mikanz.complete? %>
-      <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
-    <% end %>
   </div>
 </div>
 
