@@ -3,19 +3,20 @@
   <div class="span6">
     <h4><%= image_tag @current_user.image_url, width: 25, height: 25 %>
       <%= @current_user.nickname %>さんの応援一覧</h4>
-    <div class="list-group">
+    <hr>
+    <% if @waterings.size == 0 %>
+    応援しているミカンはありません。
+    <% end %>
+    <div class="swatches-col">
       <% @waterings.each do |w| %>
-        <%= link_to(w.mikanz, class: 'list-group-item') do %>
-          <h4 class="list-group-item-heading">
-            <%= render partial: 'mikanzs/display_completion', locals: { mikanz: w.mikanz } %>
-            <%= w.mikanz.name %>
-          </h4>
-          <p class="list-group-item-text">
-            タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: w.mikanz } %>
-          </p>
-          <p class="via">（since <%= w.mikanz.start_year %>/<%= w.mikanz.start_month %> by <%= "#{w.mikanz.owner.nickname}" %>
-            <%= image_tag w.mikanz.owner.image_url, width: 20, height: 20 %>
-            ）</p>
+        <%= link_to(w.mikanz, class: 'pallete-item') do %>
+          <dl class="mikanz-list-palette palette-nephritis mikanz-list-title">
+            <dt><%= fa_icon "heart" %> x <%= w.mikanz.waterings.size %></dt>
+          </dl>
+          <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
+            <dt><span class="cut"><%= image_tag w.mikanz.mikanz_image.url || '/images/noimage.jpg', class: 'cut_image' %></span></dt>
+            <dd><div class="mikanz-list-title-icon"><b>by</b> <%= image_tag w.mikanz.owner.image_url, width: 25, height: 25 %></div></dd>
+          </dl>
         <% end %>
       <% end %>
     </div>

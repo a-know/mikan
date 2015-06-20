@@ -3,17 +3,20 @@
         <div class="span6">
           <h4><%= image_tag @user.image_url, width: 25, height: 25 %>
             <%= @user.nickname %>さんのミカン一覧</h4>
-          <div class="list-group">
+          <hr>
+          <% if @mikanzs.size == 0 %>
+          まだミカンが登録されていません。
+          <% end %>
+          <div class="swatches-col">
             <% @mikanzs.each do |mikanz| %>
-              <%= link_to(mikanz, class: 'list-group-item') do %>
-                <h4 class="list-group-item-heading">
-                  <%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %>
-                  <%= mikanz.name %>
-                </h4>
-                <p class="list-group-item-text">
-                  タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
-                </p>
-                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %>）</p>
+              <%= link_to(mikanz, class: 'pallete-item') do %>
+                <dl class="mikanz-list-palette palette-nephritis mikanz-list-title">
+                  <dt><%= fa_icon "heart" %> x <%= mikanz.waterings.size %></dt>
+                </dl>
+                <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
+                  <dt><span class="cut"><%= image_tag mikanz.mikanz_image.url || '/images/noimage.jpg', class: 'cut_image' %></span></dt>
+                  <dd><b><%= mikanz.name.size > 5 ? mikanz.name[0..4] + '...' : mikanz.name %></b></dd>
+                </dl>
               <% end %>
             <% end %>
           </div>

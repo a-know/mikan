@@ -1,68 +1,57 @@
 <% provide(:title, @mikanz.name) %>
-<div class="page-header">
-  <% if @mikanz.complete? %>
-    <%= image_tag '/images/dotsline_top.png', class: 'complete-line' %>
-  <% end %>
-  <h1>
-    <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
-    <%= @mikanz.name %>
-  </h1>
-  <h5>
-    <div class="via">
-      <% if @mikanz.owner %>
-        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
-          <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
+<% if @mikanz.complete? %>
+  <div class="mikanz-detail-header-complete">
+<% else %>
+  <div class="mikanz-detail-header">
+<% end %>
+  <div class="page-header">
+    <h1>
+      <%= render partial: 'display_completion', locals: { mikanz: @mikanz } %>
+      <%= @mikanz.name %>
+    </h1>
+      <div class="via producer">
+        <% if @mikanz.owner %>
+          <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>
+            <%= image_tag @mikanz.owner.image_url, width: 40, height: 40 %>
+          <% end %>
+          <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>produced by <%= "#{@mikanz.owner.nickname}" %><% end %>
+          （<%= link_to(url_for_twitter(@mikanz.owner)) do %><%= "@#{@mikanz.owner.nickname}" %><% end %>）
+        <% else %>
+          退会済みユーザ
         <% end %>
-        <%= link_to(url_for_users_mikanzs(@mikanz.owner)) do %>produced by <%= "#{@mikanz.owner.nickname}" %><% end %>
-        （<%= link_to(url_for_twitter(@mikanz.owner)) do %><%= "@#{@mikanz.owner.nickname}" %><% end %>）
-      <% else %>
-        退会済みユーザ
-      <% end %>
-    </div>
-  </h5>
-  <% if @mikanz.complete? %>
-    <%= image_tag '/images/dotsline_under.png', class: 'complete-line' %>
-  <% end %>
+      </div>
+  </div>
 </div>
 
-<% if @mikanz.mikanz_image %>
-  <div class="panel panel-default">
-    <div class="thumbnail mikanzimg">
+<div>
+    <div class="mikanz-detail-palette palette-sun-flower mikanz-detail-content">
       <% if @mikanz.url.blank? %>
-        <%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %>
+        <%= image_tag @mikanz.mikanz_image || '/images/noimage.jpg' , class: 'mikanz-detail-image' %>
       <% else %>
         <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %></a>
       <% end %>
     </div>
-    <!-- <div class="panel panel-default">
-      <div class="panel-heading">
-        水やり（応援）してくれた人
-      </div>
-    </div> -->
-    <div class="panel-body">
+    <div class="mikanz-list-palette palette-nephritis mikanz-list-title">
       <ul class="list-unstyled">
+        <h4 class="fav-icon-h"><%= fa_icon "heart" %> x <%= @waterings.size %></h4>
         <% @waterings.each do |watering| %>
           <% if watering.user %>
-            <li>
               <%= link_to(url_for_users_mikanzs(watering.user)) do %>
-                <%= image_tag watering.user.image_url, width: 20, height: 20 %>
-                <%= "@#{watering.user.nickname}" %>
+                <%= image_tag watering.user.image_url, width: 30, height: 30, class: 'fav-user-icon-h' %>
               <% end %>
-            </li>
           <% else %>
-            <%= image_tag "/images/nouser.png", width: 20, height: 20 %>
-            退会済みユーザ
+            <%= image_tag "/images/nouser.png", width: 30, height: 30, class: 'fav-user-icon-h' %>
           <% end %>
         <% end %>
       </ul>
+      <div class="via tweet"><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a></div>
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      </script>
     </div>
-  </div>
-<% end %>
+</div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    このミカンについて
-  </div>
+<div class="mikanz-list-palette palette-clouds mikanz-detail-description">
   <div class="panel-body">
     <%= simple_format(@mikanz.content) %>
     <br>
@@ -71,27 +60,38 @@
         <%= link_to(tag, { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag }, class: 'label label-success mikanz-tag') %>
       <% end %>
     <% end %>
-    <p class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</p>
-    <p class="via"><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a></p>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div class="via">（since <%= @mikanz.start_year %>/<%= @mikanz.start_month %>）</div>
   </div>
 </div>
 <div>
   <% if @mikanz.created_by?(current_user) %>
-    <%= link_to '登録内容を編集する', edit_mikanz_path(@mikanz), class: 'btn btn-info btn-lg btn-block' %>
-    <%= link_to 'このミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
+    <div class="col-xs-9">
+      <%= link_to '登録内容を編集する', edit_mikanz_path(@mikanz), class: 'btn btn-info btn-lg btn-block' %>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to 'ミカンを削除する', mikanz_path(@mikanz), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' }%>
+    </div>
   <% end %>
   <% unless owner?(@mikanz, current_user) %>
-    <% if @watering %>
-      <%= link_to '水やり（応援）を取り消す', mikanz_watering_path(@mikanz, @watering), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
-    <% elsif logged_in? %>
-      <div id="createWatering">
-        <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
-          <%= f.button '水やり（応援）する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
-        <% end %>
-      </div>
+    <% if logged_in? %>
+      <% if @watering %>
+        <div id="createWatering">
+          <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
+            <%= f.button '応援済み', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' }, disabled: true %>
+          <% end %>
+        </div>
+      <% else %>
+        <div id="createWatering">
+          <%= form_for(@mikanz.waterings.build, url: mikanz_waterings_path(@mikanz), remote: true) do |f| %>
+            <%= f.button '応援する', class: 'btn btn-primary btn-lg btn-block', data: { disable_with: '送信中...' } %>
+          <% end %>
+        </div>
+      <% end %>
     <% else %>
-      <%= link_to '水やり（応援）する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
+      <%= link_to '応援する', new_mikanz_watering_path(@mikanz), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
   <% end %>
 </div>
+<br>
+<br>
+<br>

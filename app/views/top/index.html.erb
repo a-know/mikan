@@ -1,9 +1,8 @@
       <div class="jumbotron topdiv">
         <div class="topdiv-child">
           <p></p>
-          <h1>Mikanz -ミカンズ-</h1>
+          <h2>Mikanz -ミカンズ-</h2>
           <p class="lead">あのこのハート、いつか、つかもう</p>
-          <h6 class="via">inspierd by スピッツ - ミカンズのテーマ</h6>
           <p></p>
         </div>
       </div>
@@ -11,44 +10,79 @@
       <hr>
 
       <div class="row-fluid marketing">
-        <div class="span6">
-          <h3>Mikanz -ミカンズ- って、なに？</h3>
-          <p><strong>Mikanz -ミカンズ-</strong> は、「みんなの未完成品（ミカン）が集まる場所」。</p>
-          <p>あなたの未完成品（ミカン）を登録して、そのまま他人に見てもらいましょう。</p>
-          <p>あまくてすっぱい、アイデアだけの状態でもかまいません。</p>
-          <p>あなたの未完成品（ミカン）の登録ができたら、今度は、ほかの人の未完成品（ミカン）も見てみましょう。</p>
-          <p>そして、「いいな」と思うものがあったら、ぜひ応援（水やり）してあげましょう。</p>
-          <p>「完成させることができるかどうか」を恐れず、何かを創りだそうとする全ての人を応援するWebサービス。</p>
-          <p>それが <strong>Mikanz -ミカンズ-</strong> です。</p>
-          <h6 class="via">inspierd by スピッツ - ミカンズのテーマ</h6>
-        </div>
-        <hr>
-        <div class="span6">
-          <h3>ミカンの木（よく使われているタグ）</h3>
-          <div class="tagcloud">
-            <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-              <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag.name }, class: 'label label-success mikanz-tag ' + css_class) %>
-            <% end %>
+        <h4>Mikanz -ミカンズ- って、なに？</h4>
+        <div class="row demo-tiles">
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/image_outline.png', class: 'tile-image' %>
+              <%= image_tag '/images/gateway.png', class: 'tile-image' %>
+              <h3 class="tile-title">つくりかけのものを登録</h3>
+              <p></p>
+              <p>Mikanz -ミカンズ- は、<br>
+              「みんなの未完成品（ミカン）が集まる場所」。<br>
+              あまくてすっぱい、<br>アイデアだけの状態でもかまいません。</p>
+            </div>
           </div>
-        </div>
+
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/check_for_virus.png', class: 'tile-image' %>
+              <%= image_tag '/images/shape_star.png', class: 'tile-image' %>
+              <h3 class="tile-title">見てもらい、応援してもらう</h3>
+              <p></p>
+              <p>あなたのミカンの登録ができたら、<br>
+                ほかの人のミカンも見てみましょう。<br>
+                そして、「いいな」と思うものがあったら、<br>
+                ぜひ応援してあげましょう。</p>
+            </div>
+          </div>
+
+          <div class="col-xs-4">
+            <div class="tile">
+              <%= image_tag '/images/animation.png', class: 'tile-image' %>
+              <%= image_tag '/images/image.png', class: 'tile-image' %>
+              <h3 class="tile-title">また頑張れる、完成させられる！</h3>
+              <p></p>
+              <p>「完成させることができるかどうか」を恐れず、<br>
+                何かを創りだそうとする<br>
+                全ての人を応援するWebサービス。<br>
+                それが、 <strong>Mikanz -ミカンズ- </strong> です。</p>
+            </div>
+          </div>
+          <h6 class="via">inspierd by スピッツ - ミカンズのテーマ</h6>
+        </div> <!-- /tiles -->
+
         <hr>
+
         <div class="span6">
-          <h3>最近登録されたミカン</h3>
-          <div class="list-group">
+          <h4>最近登録されたミカン</h4>
+          <div class="swatches-col">
             <% @mikanzs.each do |mikanz| %>
-              <%= link_to(mikanz, class: 'list-group-item') do %>
-                <h4 class="list-group-item-heading">
-                  <%= render partial: 'mikanzs/display_completion', locals: { mikanz: mikanz } %>
-                  <%= mikanz.name %>
-                </h4>
-                <p class="list-group-item-text">
-                  タグ：<%= render partial: 'mikanzs/tags', locals: { mikanz: mikanz } %>
-                </p>
-                <p class="via">（since <%= mikanz.start_year %>/<%= mikanz.start_month %> by <%= "#{mikanz.owner.nickname}" %>
-                  <%= image_tag mikanz.owner.image_url, width: 20, height: 20 %>
-                  ）</p>
+              <%= link_to(mikanz, class: 'pallete-item') do %>
+                <dl class="mikanz-list-palette palette-nephritis top-mikanz-list-title">
+                  <dt><%= fa_icon "heart" %> x <%= mikanz.waterings.size %></dt>
+                </dl>
+                <dl class="mikanz-list-palette palette-sun-flower mikanz-list-content">
+                  <dt><span class="cut"><%= image_tag mikanz.mikanz_image.url || '/images/noimage.jpg', class: 'cut_image' %></span></dt>
+                  <dd><div class="mikanz-list-title-icon"><b>by</b> <%= image_tag mikanz.owner.image_url, width: 25, height: 25 %></div></dd>
+                </dl>
               <% end %>
             <% end %>
+          </div>
+        </div> <!-- /swatches row -->
+
+        <hr>
+
+        <div class="span6">
+          <h4>ミカンの木（よく使われているタグ）</h4>
+          <div class="tag-parent">
+            <div class="tagcloud">
+              <br>
+              <br>
+              <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                <%= link_to(tag.name + " (#{tag.taggings_count})", { :controller => 'mikanzs', :action => :tag_search, :tag_name => tag.name }, class: 'label label-warning mikanz-tag ' + css_class) %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

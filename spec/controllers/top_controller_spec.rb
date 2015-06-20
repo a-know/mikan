@@ -12,9 +12,9 @@ RSpec.describe TopController, :type => :controller do
     end
 
     it 'set a new Array<Mikanz> object to @mikanzs' do
-      expect(assigns(:mikanzs).size).to eq(3)
+      expect(assigns(:mikanzs).size).to eq(4)
       expect(assigns(:mikanzs).first.id).to eq(@mikanz5.id)
-      expect(assigns(:mikanzs).last.id).to eq(@mikanz3.id)
+      expect(assigns(:mikanzs).last.id).to eq(@mikanz2.id)
       expect(assigns(:tags).size).to eq(6)
       expect(assigns(:tags).first.name).to eq('A')
       expect(assigns(:tags).first.taggings_count).to eq(3)

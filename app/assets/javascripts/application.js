@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
 //= require jquery-ui
 //= require tag-it
 //= require bootstrap.min

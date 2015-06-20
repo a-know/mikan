@@ -21,7 +21,7 @@ class WateringsController < ApplicationController
     end
 
     if success
-      flash[:notice] = '水やり（応援）を完了しました'
+      flash[:notice] = '応援を完了しました'
       head 201
     else
       render json: { message: watering.errors.full_messages }, status: 422
@@ -32,7 +32,7 @@ class WateringsController < ApplicationController
     watering = current_user.waterings.find_by!(mikanz_id: params[:mikanz_id])
     Notification.find_by(watering_id: watering.id).destroy
     watering.destroy!
-    redirect_to mikanz_path(params[:mikanz_id]), notice: 'このミカンへの水やり（応援）を取り消しました'
+    redirect_to mikanz_path(params[:mikanz_id]), notice: 'このミカンへの応援を取り消しました'
   end
 
   def users_waterings

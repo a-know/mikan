@@ -32,24 +32,35 @@ body {
 .via {
   text-align: right;
   color: #999;
+  font-size: 12px;
 }
 
 .ui-helper-hidden-accessible {
   display: none;
 }
 
-.css1 { font-size: 1.0em; line-height: 4;}
-.css2 { font-size: 1.2em; line-height: 4;}
-.css3 { font-size: 1.4em; line-height: 4;}
-.css4 { font-size: 1.6em; line-height: 4;}
+.css1 { font-size: 0.6em; line-height: 4;}
+.css2 { font-size: 0.8em; line-height: 4;}
+.css3 { font-size: 1.0em; line-height: 4;}
+.css4 { font-size: 1.2em; line-height: 4;}
+
+.tag-parent {
+  text-align: center;
+}
 
 .tagcloud {
   text-align: center;
+  background-image: url(/images/tree.png);
+  width: 600px;
+  height: 600px;
+  display: inline-block;
 }
 
 .topdiv {
   background-image: url(/images/top.jpg);
   background-size:cover;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .topdiv-child {
@@ -70,4 +81,202 @@ body {
 
 .complete-line {
   max-width: 100%;
+}
+
+.navbar-inverse {
+  background-color: #27AE60;
+}
+
+.navbar-header > a:hover {
+  color: #F1C40F !important;
+}
+
+.navbar-nav > li > a:hover {
+  color: #F1C40F !important;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.form-group .select {
+  width: 10%;
+}
+
+.input-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.has-success .form-control, .has-success .select2-search input[type="text"] {
+  color: #000 !important;
+}
+
+ul.tagit li.tagit-choice {
+  background-color: #2ECC71;
+}
+
+ul.tagit li.tagit-choice .tagit-label:not(a) {
+  color: #FFF;
+}
+
+.footer {
+  font-size: 13px;
+  text-align: center;
+}
+
+.centered {
+  text-align: center;
+}
+
+.tile {
+  background-color: #FCF5D8 !important;
+}
+
+.pallete-item {
+  width: 200px !important;
+  float: none;
+  display: inline-block;
+}
+
+.mikanz-list-palette {
+  padding: 5px !important;
+  text-transform: none !important;
+  font-size: 16px;
+  color: #FFF;
+  margin: 0;
+}
+
+.swatches-col {
+  text-align: center;
+}
+
+.top-mikanz-list-title {
+  text-align: right;
+  border-radius: 10px;
+}
+
+.mikanz-list-title {
+  text-align: left;
+  border-radius: 10px;
+}
+
+.mikanz-list-title-icon {
+  display: block;
+  text-align: right;
+}
+
+.mikanz-list-content {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cut {
+  position:relative;
+  overflow: hidden; /*不要部分ｷﾘﾄﾘ*/
+  height: 140px; /*正方形にしたいサイズ*/
+  width: 140px; /*正方形にしたいサイズ*/
+  display: inline-block; /*SPANなのでブロック要素に*/
+  border: 6px solid #fff;
+  border-radius: 10px;
+}
+.cut_image /*縦・横の画像でも一応見れるように微妙に調整されています*/ {
+  display: block;
+  height: 160px;
+  position: absolute;
+  left: -15px;
+  top: -15px;
+}
+
+.mikanz-detail-title {
+  text-align: left;
+  border-radius: 10px;
+}
+
+.mikanz-detail-content {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.mikanz-detail-image {
+  border: 6px solid #fff;
+  margin: 20px;
+}
+
+i .fa {
+  display: inline-block;
+}
+
+.fav-icon-h {
+  padding: 0px 0px 0px 10px;
+}
+
+.fav-user-icon-h {
+  margin: 0px 0px 0px 0px;
+}
+
+.mikanz-detail-description {
+  color: #000;
+  margin: 5px 0px 45px 0px;
+}
+
+.tweet {
+  padding: 0px 15px 0px 0px;
+}
+
+.mikanz-detail-header {
+  background-image: url(/images/mikan_flat.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.mikanz-detail-header-complete {
+  background-image: url(/images/kagami2.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.page-header {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.producer {
+  font-size: 16px;
+}
+
+.page {
+  background-color: #ECF0F1;
+}
+
+.next_page {
+  background-color: #ECF0F1;
+}
+
+.last {
+  background-color: #ECF0F1;
+}
+
+.prev {
+  background-color: #ECF0F1;
+}
+
+.first {
+  background-color: #ECF0F1;
+}
+
+.notification-list {
+  width: 85%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+ul.tagit {
+  border-color: #2ecc71 !important;
+  border-radius: 6px;
+}
+
+.thumbnail {
+  border-color: #2ecc71 !important;
 }

@@ -12,3 +12,6 @@ ja:
         mikanz_image: 画像
         tag_list: タグ
         url: URL
+  views:
+    pagination:
+      truncate: "..."
