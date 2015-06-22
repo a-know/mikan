@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # == Schema Information
 #
 # Table name: users
@@ -26,6 +28,7 @@ class User < ActiveRecord::Base
       user.nickname = nickname
       user.image_url = image_url
       Notification.create!(user: user, watering: nil, kind: 2, read: false)
+      Notifier.new.post("ユーザー新規登録：#{nickname}")
     end
   end
 end

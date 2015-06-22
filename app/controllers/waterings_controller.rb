@@ -22,6 +22,7 @@ class WateringsController < ApplicationController
 
     if success
       flash[:notice] = '応援を完了しました'
+      slack_notifier.post("応援登録：#{current_user.nickname} waterings to 「#{Mikanz.find(params[:mikanz_id]).name}」")
       head 201
     else
       render json: { message: watering.errors.full_messages }, status: 422
