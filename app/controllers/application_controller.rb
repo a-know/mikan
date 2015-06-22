@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
+  rescue_from Exception, with: :error500
+  rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, with: :error404
+
   private
 
   def current_user
@@ -36,5 +39,14 @@ class ApplicationController < ActionController::Base
     if logged_in?
       @notification_count = current_user.notifications.where(read: false).count
     end
+  end
+
+  def error404(e)
+    render 'error404', status: 404, formats: [:html]
+  end
+
+  def error500(e)
+    logger.error [e, *e.backtrace].join("\n")
+    render 'error500', status: 500, formats: [:html]
   end
 end
