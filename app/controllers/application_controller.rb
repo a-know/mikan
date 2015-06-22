@@ -49,4 +49,8 @@ class ApplicationController < ActionController::Base
     logger.error [e, *e.backtrace].join("\n")
     render 'error500', status: 500, formats: [:html]
   end
+
+  def slack_notifier
+    @slack_notifier ||= Notifier.new
+  end
 end
