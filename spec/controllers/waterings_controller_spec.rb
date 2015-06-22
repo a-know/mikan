@@ -12,9 +12,8 @@ RSpec.describe WateringsController, type: :controller do
         session[:user_id] = user.id
       end
       it 'ActionController::RoutingError がスローされること' do
-        expect do
-          subject
-        end.to raise_error(ActionController::RoutingError)
+        subject
+        expect(response.status).to eq(404)
       end
     end
   end
@@ -57,9 +56,8 @@ RSpec.describe WateringsController, type: :controller do
         session[:user_id] = @mikanz.owner.id
       end
       it 'エラーとなること' do
-        expect do
-          subject
-        end.to raise_error(ActionController::RoutingError, '自分のミカンを自分で応援することはできません')
+        subject
+        expect(response.status).to eq(404)
       end
     end
   end
