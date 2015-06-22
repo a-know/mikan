@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    nickname = current_user.nickname
     if current_user.destroy
       reset_session
+      slack_notifier.post("ユーザー退会：#{nickname}")
       redirect_to root_path, notice: '退会処理が完了しました'
     else
       render :retire

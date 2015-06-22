@@ -11,6 +11,7 @@ class MikanzsController < ApplicationController
   def create
     @mikanz = current_user.created_mikanzs.build(mikanz_param)
     if @mikanz.save
+      slack_notifier.post("ミカン登録：「#{@mikanz.name}」 by #{current_user.nickname}")
       redirect_to @mikanz, notice: '登録しました'
     else
       render :new

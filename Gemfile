@@ -96,3 +96,6 @@ gem 'select2-rails'
 
 # for font-awesome
 gem 'font-awesome-rails'
+
+# for slack-notification
+gem 'slack-notifier'
