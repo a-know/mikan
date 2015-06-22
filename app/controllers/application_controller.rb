@@ -42,11 +42,14 @@ class ApplicationController < ActionController::Base
   end
 
   def error404(e)
+    slack_notifier.post("error occurs : 404")
     render 'error404', status: 404, formats: [:html]
   end
 
   def error500(e)
-    logger.error [e, *e.backtrace].join("\n")
+    error_detail = [e, *e.backtrace].join("\n")
+    logger.error error_detail
+    slack_notifier.post("error occurs : 500 \n#{error_detail}")
     render 'error500', status: 500, formats: [:html]
   end
 
