@@ -26,9 +26,9 @@
 <div>
     <div class="mikanz-detail-palette palette-sun-flower mikanz-detail-content">
       <% if @mikanz.url.blank? %>
-        <%= image_tag @mikanz.mikanz_image || '/images/noimage.jpg' , class: 'mikanz-detail-image' %>
+        <%= image_tag path_to_mikanz_image(@mikanz), class: 'mikanz-detail-image' %>
       <% else %>
-        <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag @mikanz.mikanz_image.url || '/images/noimage.jpg' %></a>
+        <a href="<%= @mikanz.url %>" target="_blank"><%= image_tag path_to_mikanz_image(@mikanz) %></a>
       <% end %>
     </div>
     <div class="mikanz-list-palette palette-nephritis mikanz-list-title">

@@ -13,6 +13,10 @@ module ApplicationHelper
     "/user/waterings"
   end
 
+  def path_to_mikanz_image(mikanz)
+    mikanz.mikanz_image.blank? ? '/images/noimage.jpg' : mikanz.mikanz_image
+  end
+
   def full_title(page_title)
     base_title = 'みんなの未完成品が集まる場所・Mikanz -ミカンズ-'
     if page_title.blank?
