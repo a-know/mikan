@@ -3,6 +3,7 @@
 #              Prefix Verb   URI Pattern                                 Controller#Action
 #                root GET    /                                           top#index
 #                     GET    /auth/:provider/callback(.:format)          sessions#create
+#        auth_failure GET    /auth/failure(.:format)                     sessions#failure
 #              logout GET    /logout(.:format)                           sessions#destroy
 #         retire_user GET    /user/retire(.:format)                      users#retire
 #                user DELETE /user(.:format)                             users#destroy
@@ -21,6 +22,7 @@
 #                     PATCH  /mikanzs/:id(.:format)                      mikanzs#update
 #                     PUT    /mikanzs/:id(.:format)                      mikanzs#update
 #                     DELETE /mikanzs/:id(.:format)                      mikanzs#destroy
+#                            /*path(.:format)                            application#error404
 #
 
 Rails.application.routes.draw do
