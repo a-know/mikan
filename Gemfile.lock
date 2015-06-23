@@ -1,14 +1,14 @@
 GIT
-  remote: git://github.com/heroku/rails3_serve_static_assets.git
-  revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
-  specs:
-    rails3_serve_static_assets (0.0.1)
-
-GIT
   remote: git://github.com/heroku/rails_log_stdout.git
   revision: f9a92758f2d5dca5a88bf899a83256302f16ab6c
   specs:
     rails_log_stdout (0.0.1)
+
+GIT
+  remote: git://github.com/heroku/rails_serve_static_assets.git
+  revision: 5722be10da67ee94ab852ed72abea1628c05242c
+  specs:
+    rails_serve_static_assets (0.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -293,7 +293,6 @@ GEM
       json
       require_all
       ruby-progressbar
-    rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.3)
     railties (4.2.0)
       actionpack (= 4.2.0)
@@ -398,10 +397,10 @@ DEPENDENCIES
   pg
   poltergeist
   rails (= 4.2.0)
-  rails3_serve_static_assets!
   rails_12factor
   rails_best_practices
   rails_log_stdout!
+  rails_serve_static_assets!
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
