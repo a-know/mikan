@@ -8,5 +8,5 @@ test:
 deployment:
   feature:
     branch: /^(?!^master$).+$/
-    commands:
-      - ./scripts/feature_deploy.sh
+    heroku:
+      appname: mikanz-stg
