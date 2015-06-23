@@ -51,6 +51,14 @@ test:
   username: mikan
   password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: mikan_staging
+  pool: 5
+  username: mikan
+  password:
+
 production:
   adapter: postgresql
   encoding: unicode
