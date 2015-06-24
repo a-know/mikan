@@ -55,6 +55,9 @@ gem 'omniauth-twitter'
 # for heroku
 group :production do
   gem 'rails_12factor'
+end
+
+group :staging, :production do
   # Use Unicorn as the app server
   gem 'unicorn'
 end
