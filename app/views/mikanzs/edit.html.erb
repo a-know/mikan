@@ -36,10 +36,6 @@
     <p><%= f.label :content, class: 'input-label' %></p>
     <%= f.text_area :content, class: 'form-control', row: 10 %>
   </div>
-  <div class="form-group has-success">
-    <p><%= f.label :url, class: 'input-label' %></p>
-    <%= f.text_field :url, class: 'form-control' %>
-  </div>
   <div class="form-group">
     <% if @mikanz.mikanz_image? %>
       <div class="thumbnail has-success">
@@ -57,6 +53,10 @@
       </label>
     </div>
   <% end %>
+  <div class="form-group has-success">
+    <p><%= f.label :url, class: 'input-label' %></p>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
 
   <%= f.submit '更新', class: 'btn btn-hg btn-warning', data: { disable_with: '更新中...' } %>
 <% end %>
