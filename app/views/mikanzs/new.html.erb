@@ -37,6 +37,7 @@
     <%= f.text_area :content, class: 'form-control', row: 10 %>
   </div>
   <div class="form-group">
+    <p><%= f.label :mikanz_image, class: 'input-label' %></p>
     <% if @mikanz.mikanz_image? %>
       <div class="thumbnail">
         <%= image_tag @mikanz.mikanz_image.url %>
