@@ -99,3 +99,6 @@ gem 'font-awesome-rails'
 
 # for slack-notification
 gem 'slack-notifier'
+
+# for google analytics
+gem 'google-analytics-rails'
