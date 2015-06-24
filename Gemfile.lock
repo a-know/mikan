@@ -197,6 +197,7 @@ GEM
       json
       multi_json
       request_store (>= 1.0.5)
+    google-analytics-rails (0.0.6)
     hashie (3.4.2)
     i18n (0.7.0)
     inflecto (0.0.2)
@@ -369,6 +370,7 @@ DEPENDENCIES
   fog
   font-awesome-rails
   gon
+  google-analytics-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
