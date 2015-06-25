@@ -55,6 +55,8 @@ gem 'omniauth-twitter'
 # for heroku
 group :production do
   gem 'rails_12factor'
+  # for new relic
+  gem 'newrelic_rpm'
 end
 
 group :staging, :production do
