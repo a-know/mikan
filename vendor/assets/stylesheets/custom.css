@@ -61,6 +61,7 @@ body {
   background-size:cover;
   padding-left: 0px !important;
   padding-right: 0px !important;
+  margin: 60px 0px 20px 0px !important;
 }
 
 .topdiv-child {
@@ -284,4 +285,12 @@ ul.tagit {
 .about-column {
   border: none !important;
   background-color: #FFF !important;
+}
+
+.fb_iframe_widget > span {
+  vertical-align: baseline !important;
+}
+
+.share-button {
+  text-align: right;
 }
