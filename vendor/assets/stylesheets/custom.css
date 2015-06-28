@@ -280,3 +280,8 @@ ul.tagit {
 .thumbnail {
   border-color: #2ecc71 !important;
 }
+
+.about-column {
+  border: none !important;
+  background-color: #FFF !important;
+}
