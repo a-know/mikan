@@ -6,7 +6,7 @@ ja:
     attributes:
       mikanz:
         name: ミカンの名前
-        start_year_month: ミカンの生年月
+        start_year_month: いつから？
         content: このミカンについて
         completion: 完成度
         mikanz_image: 画像
