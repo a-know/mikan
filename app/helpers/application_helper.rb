@@ -18,11 +18,11 @@ module ApplicationHelper
   end
 
   def full_title(page_title)
-    base_title = 'みんなの未完成品が集まる場所・Mikanz -ミカンズ-'
+    base_title = 'Mikanz -ミカンズ- | みんなの未完成品が集まるばしょ'
     if page_title.blank?
       base_title
     else
-      "#{page_title} | #{base_title}"
+      "#{page_title} | Mikanz -ミカンズ-"
     end
   end
 
