@@ -73,6 +73,7 @@ class MikanzsController < ApplicationController
 
   def users_mikanzs
     @user = User.where(nickname: params[:user_nickname]).take
+    return error404(nil) unless @user
     @mikanzs = @user.created_mikanzs.order('created_at DESC').page(params[:page])
   end
 
