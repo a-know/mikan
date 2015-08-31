@@ -5,7 +5,7 @@ set :application, 'mikanz'
 set :repo_url, 'git@github.com:a-know/mikan.git'
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/var/www/mikanz-test'
