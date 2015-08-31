@@ -51,6 +51,14 @@ test:
   username: mikan
   password:
 
+iaas:
+  adapter: postgresql
+  encoding: unicode
+  database: mikan_iaas
+  pool: 5
+  username: mikan
+  password:
+
 staging:
   adapter: postgresql
   encoding: unicode
