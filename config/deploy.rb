@@ -34,6 +34,8 @@ set :default_env, {
   path: '/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH'
 }
 
+set :rails_env, :iaas
+
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
