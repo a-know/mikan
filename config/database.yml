@@ -57,7 +57,7 @@ iaas:
   database: mikan_iaas
   pool: 5
   username: mikan
-  password:
+  password: p@ssw0rd
 
 staging:
   adapter: postgresql
