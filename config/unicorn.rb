@@ -1,4 +1,4 @@
-listen 'tmp/sockets/unicorn.sock'
+listen '/var/www/mikanz-test/shared/tmp/sockets/unicorn.sock'
 pid 'tmp/pids/unicorn.pid'
 
 worker_processes 2
