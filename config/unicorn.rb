@@ -1,5 +1,6 @@
-listen '127.0.0.1:3000'
+listen 'tmp/sockets/unicorn.sock'
 pid 'tmp/pids/unicorn.pid'
+
 worker_processes 2
 timeout 15
 preload_app true
