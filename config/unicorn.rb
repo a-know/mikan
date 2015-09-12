@@ -1,4 +1,4 @@
-listen '/tmp/mikanz-test.sock'
+listen '127.0.0.1:3000'
 pid 'tmp/pids/unicorn.pid'
 worker_processes 2
 timeout 15
