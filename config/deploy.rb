@@ -26,7 +26,7 @@ set :scm, :git
 set :linked_files, fetch(:linked_files, []).push('.env')
 
 # Default value for linked_dirs is []
-set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
+set :linked_dirs, (fetch(:linked_dirs) + [ 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system' ])
 
 # Unicorn
 set :unicorn_rack_env, 'none'
