@@ -1,5 +1,6 @@
-listen '/tmp/mikanz-test.sock'
+listen '/var/www/mikanz-test/shared/tmp/sockets/unicorn.sock'
 pid 'tmp/pids/unicorn.pid'
+
 worker_processes 2
 timeout 15
 preload_app true
